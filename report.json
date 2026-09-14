@@ -1,0 +1,1971 @@
+{
+    "report": [
+        {
+            "name": "financials",
+            "type": "section",
+            "children": [
+                {
+                    "name": "financial_summary",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Financial Summary",
+                    "sub_ordering": 0,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 1,
+                    "id": "financial_summary_874_966577e6",
+                    "section_slug": "17_financials_financial_summary",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "8": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                        "9": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "10": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=48",
+                        "11": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                        "12": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "13": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "14": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "15": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=3",
+                        "16": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=28",
+                        "17": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "18": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "19": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "20": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=8",
+                        "21": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "22": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "23": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "24": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "25": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "26": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "27": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "28": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "29": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "30": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "31": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "32": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "33": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "34": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "35": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "36": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "37": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "38": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "39": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "40": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "41": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "42": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "43": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "44": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25",
+                        "45": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "46": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "47": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "48": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "49": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "50": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "51": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "52": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "53": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "54": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "55": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "56": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "57": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "58": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25",
+                        "59": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "60": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "61": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "62": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "63": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "64": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "65": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "66": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "67": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "68": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "69": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "70": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "71": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "72": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25",
+                        "73": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "74": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "75": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                        "76": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                        "77": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "78": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "79": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "80": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "81": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "82": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                        "83": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "84": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "85": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                        "86": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "87": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=3",
+                        "88": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=28",
+                        "89": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "90": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "91": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "92": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "93": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "94": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "95": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "96": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                        "97": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "98": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=48",
+                        "99": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                        "100": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "101": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "102": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "103": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=3",
+                        "104": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=28",
+                        "105": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "106": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "107": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "108": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=8",
+                        "109": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "110": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "111": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "112": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "113": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "114": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": {
+                                "zebra": true,
+                                "columns": [
+                                    {
+                                        "key": "row",
+                                        "title": "",
+                                        "dataIndex": "row"
+                                    },
+                                    {
+                                        "key": "value",
+                                        "title": "2024A",
+                                        "dataIndex": "value"
+                                    },
+                                    {
+                                        "key": "movement",
+                                        "title": "vs 2022A",
+                                        "dataIndex": "movement"
+                                    },
+                                    {
+                                        "key": "key_insight",
+                                        "title": "Key Insight",
+                                        "dataIndex": "key_insight"
+                                    }
+                                ],
+                                "dataSource": [
+                                    {
+                                        "row": "**Revenue**",
+                                        "value": "$20.4M",
+                                        "movement": "118.3% CAGR from 2022A",
+                                        "key_insight": "2024A growth accelerated to 151.1% from 89.8% in 2023A, but the step-up includes a retail launch and a small 2022 base, so the recent spike reads as a sharp scale-up rather than a settled run-rate."
+                                    },
+                                    {
+                                        "row": "**Profit (EBITDA)**",
+                                        "value": "$4.4M adjusted EBITDA, 21.6% margin",
+                                        "movement": "from $1.1M and 25.0% in 2022A",
+                                        "key_insight": "Gross margin stayed high at 88.0% in 2024A, but digital advertising reached 31.8% of revenue and payroll 6.9%, so the 2024 profit setback happened below gross profit and leaves earnings dependent on whether those spend levels persist."
+                                    },
+                                    {
+                                        "row": "**Biggest concentration**",
+                                        "value": "79.4% of 2024A product gross sales",
+                                        "movement": "from 93.5% in 2022A",
+                                        "key_insight": "Excluding Weekend Recovery leaves only about $4.4M across the rest of the portfolio, while the product still supplied $12.9M, or 75.7%, of product growth from 2022A to 2024A, so diversification has started but the business remains anchored to one hero product."
+                                    },
+                                    {
+                                        "row": "**Gross margin**",
+                                        "value": "88.0%",
+                                        "movement": "from 81.5% in 2022A",
+                                        "key_insight": "The 2022A-2024A improvement came almost entirely from a 6.5-point lower COGS burden; without that, 2024A gross profit would have been about $16.6M, which is why product economics stayed strong even as EBITDA margin fell."
+                                    },
+                                    {
+                                        "row": "**Revenue at risk**",
+                                        "value": "$10.7M",
+                                        "movement": "52.6% of 2024A net revenue",
+                                        "key_insight": "Amazon's 2022A-2024A revenue growth contributed $9.3M and average Amazon subscribers rose to 7.6K in 2H24 from 0.1K in 1H23, but this demand still sits with one platform outside the company's control, so growth concentration and loss exposure sit in the same place."
+                                    },
+                                    {
+                                        "row": "**Adjustments claimed**",
+                                        "value": "$4.4M management-adjusted EBITDA; $4.3M recommended EBITDA",
+                                        "movement": "$4.3M recommended EBITDA vs $1.1M in 2022A",
+                                        "key_insight": "The largest claimed uplift is a $0.3M non-recurring bucket, but the full adjustment stack only lifts management EBITDA by $0.1M above the $4.3M reported result, so the number a buyer can underwrite is still the booked earnings figure rather than seller add-backs."
+                                    }
+                                ]
+                            },
+                            "output_format": "ReportTable",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "- **Amazon and Weekend Recovery drove most revenue growth, but growth remains concentrated** — Amazon drove **$9.3M** of 2022A-2024A net revenue growth and **$6.8M** of the **$12.2M** year-over-year increase in 2024A, while retail added another $3.3M. Customer growth is still concentrated on one platform, and product growth still leans on the legacy hero SKU rather than a fully proven multi-product engine.\n- **Growth still depends on paid media support** — Marketing spend rose from $1.0M in 2022A to $2.4M in 2023A and $6.8M in 2024A, while net revenue increased by $3.8M and $12.2M in those years. That equates to about **$2.8** of extra revenue per additional marketing dollar in both 2023A and 2024A; digital advertising reached **$6.5M**, or 31.8% of revenue.\n- **Recurring revenue remains a small part of the business** — Only **$4.0M**, or 19.7%, of 2024A revenue was recurring, even as Amazon subscribers rose to 7.6K in 2H24. That leaves **$16.4M**, or 80.3%, outside a recurring base, so most value still depends on repeat purchases and sell-through.\n- **The EBITDA bridge adds little beyond reported earnings** — Management shows **$4.4M** of EBITDA, but the buyer's number is **$4.3M**, and the 2024 adjustment stack adds only $0.1M above reported results. The largest contested add-back is $0.3M, and the disclosed items are mostly transaction costs, recruiting, severance, brand work, expensed capital items, and accounting entries.\n- **2025 earnings depend on whether 2024 spend is temporary and retail scales** — Adjusted EBITDA margin fell from **27.5%** in 2023A to **21.6%** in 2024A, implying about $1.2M of EBITDA would have been preserved if margin had held. The recovery path also assumes retail can absorb tradespend rising from $0.3M in 2024A to $1.6M, so the forward earnings case is most exposed to whether those costs normalize.",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        }
+                    ],
+                    "restricted_citations": {},
+                    "summary_headline": "The business generates $4.4M of management-adjusted EBITDA at a 21.6% margin, but 2024 profitability was held back by marketing and payroll absorbing the gross-profit benefit while revenue remains concentrated, and management's figure is only $0.1M above booked EBITDA."
+                },
+                {
+                    "name": "revenue_growth",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Revenue & Growth",
+                    "sub_ordering": 1,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 999999999,
+                    "id": "revenue_growth_financials_17_35b7f6bc_7993dc5a",
+                    "section_slug": "17_financials_revenue_growth",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "8": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "9": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "10": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": "*The growth engine is still paid-media intensive, with marketing spend rising to $6.824M and digital advertising reaching $6.479M in 2024A, so further scaling likely requires continued acquisition outlay [4][8].*",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": {
+                                "options": {
+                                    "chart": {
+                                        "type": "waterfall",
+                                        "marginTop": 30
+                                    },
+                                    "title": {
+                                        "text": "Net Revenue Growth Bridge, 2022A to 2024A"
+                                    },
+                                    "xAxis": {
+                                        "type": "category",
+                                        "labels": {
+                                            "rotation": -35
+                                        }
+                                    },
+                                    "yAxis": {
+                                        "title": {
+                                            "text": "Revenue"
+                                        },
+                                        "plotLines": [],
+                                        "maxPadding": 0.1
+                                    },
+                                    "legend": {
+                                        "enabled": false
+                                    },
+                                    "series": [
+                                        {
+                                            "data": [
+                                                {
+                                                    "y": 4.271,
+                                                    "name": "2022A",
+                                                    "color": "#C2BAFF",
+                                                    "custom": {
+                                                        "display": "$4.3M"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "$4.3M",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 3.835,
+                                                    "name": "2023A increase",
+                                                    "color": "#2E9E5B",
+                                                    "custom": {
+                                                        "display": "+$3.8M"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "+$3.8M",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 12.244,
+                                                    "name": "2024A increase",
+                                                    "color": "#2E9E5B",
+                                                    "custom": {
+                                                        "display": "+$12.2M"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "+$12.2M",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 20.35,
+                                                    "name": "2024A",
+                                                    "color": "#2E2270",
+                                                    "isSum": true,
+                                                    "custom": {
+                                                        "display": "$20.4M"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "$20.4M",
+                                                        "enabled": true
+                                                    }
+                                                }
+                                            ],
+                                            "name": "Revenue"
+                                        }
+                                    ],
+                                    "tooltip": {
+                                        "pointFormat": "{series.name}<br/><b>{point.custom.display}</b>"
+                                    },
+                                    "plotOptions": {
+                                        "waterfall": {
+                                            "lineColor": "#2E2270",
+                                            "dataLabels": {
+                                                "y": -20,
+                                                "crop": false,
+                                                "style": {
+                                                    "fontSize": "10px",
+                                                    "fontWeight": "bold",
+                                                    "textOutline": "none"
+                                                },
+                                                "inside": false,
+                                                "enabled": true,
+                                                "overflow": "none",
+                                                "allowOverlap": true,
+                                                "verticalAlign": "top"
+                                            },
+                                            "borderWidth": 0
+                                        }
+                                    }
+                                }
+                            },
+                            "output_format": "ReportChart",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": {
+                                "cards": [
+                                    {
+                                        "table": null,
+                                        "title": "Growth Analysis",
+                                        "badges": [],
+                                        "content": "- **Net revenue grew from 2022A to 2024A at a 118.3% actual CAGR, with 2024A growth accelerating.** — Net revenue rose from **$4.271M** in 2022A to **$20.350M** in 2024A, with growth reaching 151.1% in 2024A [1]. The step-up included $3.835M of 2023A growth and $12.244M in 2024A, but the small 2022A base and 2024A retail launch step mean the recent spike is not yet a normalized run-rate [1][4].\n- **Amazon drove most of 2024A growth, and the core product still explains most of the historical increase.** — Amazon contributed **$6.8M** of the **$12.244M** year-over-year increase in 2024A, while retail added a further $3.3M launch step [2][1][4]. On the disclosed gross-sales view, Weekend Recovery still supplied $12.9M of the $17.0M increase from 2022A to 2024A, so growth remains concentrated in one channel and one product rather than a fully diversified mix [3][4][6][7].\n- **Growth has depended on sustained paid support.** — Marketing spend rose from **$0.981M** in 2022A to **$6.824M** in 2024A, while net revenue increased by $3.835M and $12.244M in those years [4][8][1]. Digital advertising reached $6.479M in 2024A, or about 31.8% of revenue, which shows the model can scale but still relies on continued media investment rather than low-cost demand alone [1][4][8].",
+                                        "sources": [],
+                                        "subtitle": "",
+                                        "accent_title_color": true
+                                    }
+                                ],
+                                "columns": 1
+                            },
+                            "output_format": "ReportSegmentCards",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": {
+                                "cards": [
+                                    {
+                                        "table": null,
+                                        "title": "Revenue Quality & Durability",
+                                        "badges": [],
+                                        "content": "- **The revenue base is still narrow.** — Amazon was **52.6%** of 2024A net revenue, and Weekend Recovery was **79.4%** of 2024A product gross sales on the disclosed product view [2][1][3][4]. That leaves the business exposed to one external platform and one hero SKU, even though the mix is broadening [2][1][3][4].\n- **Historical growth looks organic, but repeatability is only partly proven.** — Just **19.7%** of 2024A revenue was annualized subscription revenue, and as of Dec-2024, 14.3K subscriptions annualized to $4.0M of net sales [9][4]. That leaves about $16.35M, or 80.3% of 2024A revenue, to be re-won through repeat purchase and retail sell-through, even though Amazon repeat behavior is improving [9][4][2].\n- **Net realization weakened as retail entered the mix.** — Net revenue fell from **96.5%** to **94.5%** of gross sales in 2024A, and retail tradespend appeared at $0.259M [4]. Gross sales increased from $8.404M in 2023A to $21.537M in 2024A, but deductions grew faster as discounts, refunds, and allowances rose [4].",
+                                        "sources": [],
+                                        "subtitle": "",
+                                        "accent_title_color": true
+                                    }
+                                ],
+                                "columns": 1
+                            },
+                            "output_format": "ReportSegmentCards",
+                            "output_format_name": "Agentic"
+                        }
+                    ],
+                    "restricted_citations": {},
+                    "summary_headline": "Growth is real but still narrow and not fully repeatable: 2024A net revenue reached $20.350M, a 118.3% actual CAGR from 2022A to 2024A, but Amazon and one hero product still dominate."
+                },
+                {
+                    "name": "segment_analysis_0",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Revenue by Product",
+                    "sub_ordering": 2,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 999999999,
+                    "id": "segment_analysis_0_financials_17_35b7f6bc_f84e4370",
+                    "section_slug": "17_financials_segment_analysis_0",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "8": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "9": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "10": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "11": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "12": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "13": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "14": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": {
+                                "options": {
+                                    "chart": {
+                                        "type": "bar"
+                                    },
+                                    "title": {
+                                        "text": "Revenue by Product"
+                                    },
+                                    "xAxis": {
+                                        "labels": {
+                                            "style": {
+                                                "whiteSpace": "normal"
+                                            }
+                                        },
+                                        "categories": [
+                                            "Weekend Recovery",
+                                            "Workout Hydration",
+                                            "Daily Hydration",
+                                            "Other"
+                                        ]
+                                    },
+                                    "yAxis": {
+                                        "title": {
+                                            "text": "Revenue (2024A)"
+                                        },
+                                        "plotLines": [
+                                            {
+                                                "color": "#C2BAFF",
+                                                "value": 0,
+                                                "width": 1
+                                            }
+                                        ],
+                                        "maxPadding": 0.2,
+                                        "minPadding": 0.2
+                                    },
+                                    "legend": {
+                                        "enabled": false
+                                    },
+                                    "series": [
+                                        {
+                                            "data": [
+                                                {
+                                                    "y": 17.1,
+                                                    "color": "#5941D9"
+                                                },
+                                                {
+                                                    "y": 3.7,
+                                                    "color": "#9480FF"
+                                                },
+                                                {
+                                                    "y": 0.5,
+                                                    "color": "#2E2270"
+                                                },
+                                                {
+                                                    "y": 0.2,
+                                                    "color": "#9082D9"
+                                                }
+                                            ],
+                                            "name": "Revenue",
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>${point.y:.1f}M</b>"
+                                            }
+                                        }
+                                    ],
+                                    "plotOptions": {
+                                        "bar": {
+                                            "dataLabels": {
+                                                "crop": false,
+                                                "format": "${point.y:.1f}M",
+                                                "inside": false,
+                                                "enabled": true,
+                                                "overflow": "none"
+                                            },
+                                            "borderWidth": 0
+                                        }
+                                    }
+                                }
+                            },
+                            "output_format": "ReportChart",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "- **Hero SKU dominates** — 2024A gross sales, at **79.4%** or **$17.1M** of **$21.5M**, and excluding it leaves only about $4.4M across the rest of the portfolio [1][4]. Because this is the company's own SKU (stock keeping unit) mix rather than a third party, the issue is reliance on one hero product and a narrower innovation cushion, not a single account walking away [1][2][3].\n- **Concentration is easing** — Weekend Recovery's share fell **14.1pp** from **93.5%** in 2022A to 79.4% in 2024A [1][4], yet the business remains economically dominated by one product today [1][2][3].\n- **Legacy product drove growth** — Weekend Recovery contributed **$12.9M** of the **$17.0M** increase in gross sales from 2022A to 2024A, or **75.7%** [1][4], so most historical growth still came from deepening the legacy product rather than from a fully proven multi-product engine [1][2][3].\n- **Diversification is beginning** — Workout Hydration reached **$3.7M** in 2024A and Daily Hydration **$0.5M** in 2024A [2][3], while the 2025 product-channel plan places Daily Hydration more heavily in Retail at **$3.15M** than Amazon at **$2.1M** or DTC (direct-to-consumer) at **$1.75M** [5]. That 2025 split is projected, not booked [5].",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        }
+                    ],
+                    "restricted_citations": {}
+                },
+                {
+                    "name": "segment_analysis_1",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Revenue by Customer",
+                    "sub_ordering": 2,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 999999999,
+                    "id": "segment_analysis_1_financials_17_35b7f6bc_dafc66cb",
+                    "section_slug": "17_financials_segment_analysis_1",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "8": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "9": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "10": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "11": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "12": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "13": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "14": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": {
+                                "options": {
+                                    "chart": {
+                                        "type": "bar"
+                                    },
+                                    "title": {
+                                        "text": "Revenue Mix by Customer Type"
+                                    },
+                                    "xAxis": {
+                                        "labels": {
+                                            "style": {
+                                                "whiteSpace": "normal"
+                                            }
+                                        },
+                                        "categories": [
+                                            "Marketplace / Amazon",
+                                            "Consumer / DTC",
+                                            "Mass Retail / Wholesale Retailers",
+                                            "Other"
+                                        ]
+                                    },
+                                    "yAxis": {
+                                        "title": {
+                                            "text": "Share of revenue"
+                                        },
+                                        "plotLines": []
+                                    },
+                                    "legend": {
+                                        "enabled": false
+                                    },
+                                    "series": [
+                                        {
+                                            "data": [
+                                                10.7,
+                                                6.3,
+                                                3.3,
+                                                0.1
+                                            ],
+                                            "name": "2024A",
+                                            "color": "#5941D9",
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>${point.y:.1f}M</b>"
+                                            },
+                                            "borderWidth": 0
+                                        }
+                                    ],
+                                    "plotOptions": {
+                                        "bar": {
+                                            "borderWidth": 0
+                                        }
+                                    }
+                                }
+                            },
+                            "output_format": "ReportChart",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "- **Amazon dominates revenue** — Amazon represented **52.6%** of 2024A net revenue, or **$10.7M** of **$20.35M**, and excluding Amazon would have left only **$9.65M** of revenue [8][12]. That is a true counterparty concentration rather than just an internal mix issue, because this revenue sits with a platform outside the company's control [8][12].\n- **Customer base stays narrow** — The top 3 customers represent **67.8%** of projected 2025 revenue and the top 5 reach **72.8%** [8][9][10][11][12]. Those single-name shares are projected, not booked, so they show forward exposure rather than closed-period concentration [8][9][10][11][12].\n- **Externally controlled routes dominate** — Marketplace sales were **52.6%** of 2024A net revenue versus **31.0%** DTC (direct-to-consumer) and **16.2%** mass retail [6][7][8][4], so most scale still sits in externally controlled routes even as retail broadens distribution [6][7][8][4].\n- **Amazon fueled growth** — Amazon supplied **$9.3M** of the **$16.1M** increase in net revenue from 2022A to 2024A, or **57.8%** [8][12], and the build has been supported by deeper repeat behavior, with average Amazon subscribers rising to 7.6K in 2H24 from 0.1K in 1H23 [8].",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        }
+                    ],
+                    "restricted_citations": {}
+                },
+                {
+                    "name": "segment_analysis_2",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Revenue by Revenue Type",
+                    "sub_ordering": 2,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 999999999,
+                    "id": "segment_analysis_2_financials_17_35b7f6bc_82d2c547",
+                    "section_slug": "17_financials_segment_analysis_2",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "8": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "9": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "10": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "11": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "12": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "13": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "14": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": {
+                                "options": {
+                                    "chart": {
+                                        "type": "bar"
+                                    },
+                                    "title": {
+                                        "text": "Revenue by Type"
+                                    },
+                                    "xAxis": {
+                                        "labels": {
+                                            "style": {
+                                                "whiteSpace": "normal"
+                                            }
+                                        },
+                                        "categories": [
+                                            "Non-recurring",
+                                            "Recurring"
+                                        ]
+                                    },
+                                    "yAxis": {
+                                        "title": {
+                                            "text": "Revenue (2024A)"
+                                        },
+                                        "plotLines": [
+                                            {
+                                                "color": "#C2BAFF",
+                                                "value": 0,
+                                                "width": 1
+                                            }
+                                        ],
+                                        "maxPadding": 0.2,
+                                        "minPadding": 0.2
+                                    },
+                                    "legend": {
+                                        "enabled": false
+                                    },
+                                    "series": [
+                                        {
+                                            "data": [
+                                                {
+                                                    "y": 16.4,
+                                                    "color": "#5941D9"
+                                                },
+                                                {
+                                                    "y": 4.0,
+                                                    "color": "#9480FF"
+                                                }
+                                            ],
+                                            "name": "Revenue",
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>${point.y:.1f}M</b>"
+                                            }
+                                        }
+                                    ],
+                                    "plotOptions": {
+                                        "bar": {
+                                            "dataLabels": {
+                                                "crop": false,
+                                                "format": "${point.y:.1f}M",
+                                                "inside": false,
+                                                "enabled": true,
+                                                "overflow": "none"
+                                            },
+                                            "borderWidth": 0
+                                        }
+                                    }
+                                }
+                            },
+                            "output_format": "ReportChart",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "- **Recurring revenue is limited** — Only **$4.0M** of the **$20.35M** 2024A revenue base is annualized subscription revenue, or **19.7%**, so **80.3%** of revenue is still one-time / non-recurring and must be re-won each period [13][4]. This split is inferred from a Dec-2024 subscription run-rate against 2024A net revenue, not booked by revenue type [13][4].\n- **Durability still depends on repeat** — Stripping out the recurring base leaves **$16.35M** of 2024A revenue that is non-recurring [13][4], so durability still rests primarily on repeat purchase and sell-through rather than on a large contracted subscription base already embedded in the model [13][4].\n- **Subscription base remains modest** — The subscription base is real but still modest relative to total scale: **14.3K** subscriptions annualize to **$4.0M** as of Dec 2024 [13], which provides a repeat layer but is not yet large enough to offset the model's heavy reliance on one-time revenue [13][4].",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        }
+                    ],
+                    "restricted_citations": {}
+                },
+                {
+                    "name": "margin_analysis",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Margin Analysis",
+                    "sub_ordering": 3,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 999999999,
+                    "id": "margin_analysis_financials_17_35b7f6bc_6cd500fa",
+                    "section_slug": "17_financials_margin_analysis",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "8": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "9": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": "*The recovery case depends on revenue growth absorbing higher marketing and payroll, while retail mix keeps gross margin from resetting higher [1][2][4][5][6].*",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": {
+                                "options": {
+                                    "chart": {
+                                        "type": "waterfall",
+                                        "marginTop": 30
+                                    },
+                                    "title": {
+                                        "text": "Gross Margin Bridge"
+                                    },
+                                    "xAxis": {
+                                        "type": "category",
+                                        "labels": {
+                                            "rotation": -35
+                                        }
+                                    },
+                                    "yAxis": {
+                                        "title": {
+                                            "text": "Margin"
+                                        },
+                                        "plotLines": [],
+                                        "maxPadding": 0.1
+                                    },
+                                    "legend": {
+                                        "enabled": false
+                                    },
+                                    "series": [
+                                        {
+                                            "data": [
+                                                {
+                                                    "y": 81.5,
+                                                    "name": "Opening margin (2022A)",
+                                                    "color": "#C2BAFF",
+                                                    "custom": {
+                                                        "display": "81.50pp"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "81.50pp",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 6.5,
+                                                    "name": "COGS rate change",
+                                                    "color": "#2E9E5B",
+                                                    "custom": {
+                                                        "display": "+6.50pp"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "+6.50pp",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 88.0,
+                                                    "name": "Closing margin (2024A)",
+                                                    "color": "#2E2270",
+                                                    "isSum": true,
+                                                    "custom": {
+                                                        "display": "88.00pp"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "88.00pp",
+                                                        "enabled": true
+                                                    }
+                                                }
+                                            ],
+                                            "name": "Margin walk"
+                                        }
+                                    ],
+                                    "tooltip": {
+                                        "pointFormat": "{series.name}<br/><b>{point.custom.display}</b>"
+                                    },
+                                    "plotOptions": {
+                                        "waterfall": {
+                                            "lineColor": "#2E2270",
+                                            "dataLabels": {
+                                                "y": -20,
+                                                "crop": false,
+                                                "style": {
+                                                    "fontSize": "10px",
+                                                    "fontWeight": "bold",
+                                                    "textOutline": "none"
+                                                },
+                                                "inside": false,
+                                                "enabled": true,
+                                                "overflow": "none",
+                                                "allowOverlap": true,
+                                                "verticalAlign": "top"
+                                            },
+                                            "borderWidth": 0
+                                        }
+                                    }
+                                }
+                            },
+                            "output_format": "ReportChart",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": {
+                                "cards": [
+                                    {
+                                        "table": null,
+                                        "title": "Margin trajectory & operating leverage",
+                                        "badges": [],
+                                        "content": "- **Gross margin held near 88% after stepping up from 2022A.** — Reported gross margin reached **88.0%** in 2024A, up from **81.5%** in 2022A [1][2]. It peaked at 89.1% in 2023A, and the bridge attributes the gain to a lower COGS burden relative to revenue [1][2].\n- **Adjusted EBITDA margin compressed despite still-strong gross margin.** — Adjusted EBITDA margin fell to **21.6%** in 2024A from 27.5% in 2023A [3], while gross margin stayed strong, so the setback came below gross profit [1][2][3]. Adjusted EBITDA was **$4.4M** on management's adjusted basis [3].\n- **The only quantified recovery path is a projected 25.4% incremental EBITDA margin in 2025P.** — The same comparison implies **1.16x** operating leverage, with revenue up 107.1% versus 92.7% for operating expenses [1][2]. Because that read includes a projected year, it is management's recovery path rather than evidence of historical dollars-to-profit conversion [1][2].",
+                                        "sources": [],
+                                        "subtitle": "",
+                                        "accent_title_color": true
+                                    }
+                                ],
+                                "columns": 1
+                            },
+                            "output_format": "ReportSegmentCards",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": {
+                                "cards": [
+                                    {
+                                        "table": null,
+                                        "title": "Margin drivers & durability",
+                                        "badges": [],
+                                        "content": "- **Higher marketing, payroll, and selling costs drove the 2024A profit decline.** — Digital advertising cut margin by **468.9 bps** and payroll by **271.1 bps** in the 2023A-2024A bridge [2][4][5], more than offsetting 191.9 bps of professional-fee relief and 76.8 bps from shipping efficiency [1][2]. Gross margin slipped only 110.4 bps [1][2].\n- **Marketing intensity stays high, but payroll should normalize with growth.** — Digital advertising remains elevated at **31.8%** of 2024A revenue and rises to 33.0% in 2025P, so the model assumes no meaningful unwind in media intensity [2][5]. Payroll falls from 6.9% of 2024A revenue to **5.5%** in 2025P, implying the 2024 hiring wave is absorbed by growth [2][4].\n- **Retail mix will pressure gross margin unless channel economics improve.** — Management attributes the drop to **85.5%** gross margin in 2025P from 88.0% in 2024A mainly to a larger retail mix [6][1][2]. Retail tradespend rises from $0.259M in 2024A to **$1.6M** in 2025P, so EBITDA recovery must come despite lower net realization [2][6].",
+                                        "sources": [],
+                                        "subtitle": "",
+                                        "accent_title_color": true
+                                    }
+                                ],
+                                "columns": 1
+                            },
+                            "output_format": "ReportSegmentCards",
+                            "output_format_name": "Agentic"
+                        }
+                    ],
+                    "restricted_citations": {},
+                    "summary_headline": "Product economics improved, but 2024A profitability weakened as marketing and payroll absorbed the gross margin benefit."
+                },
+                {
+                    "name": "quality_of_earnings",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Quality of Earnings",
+                    "sub_ordering": 4,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 999999999,
+                    "id": "quality_of_earnings_financials_17_35b7f6bc_9c7ba162",
+                    "section_slug": "17_financials_quality_of_earnings",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=3",
+                        "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=28"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": "*The bridge is weakened by bundled non-recurring items and unsupported deductions, while payroll, marketing, and selling costs explain the margin compression more clearly than any validated add-backs [1][2][3][4][5].*",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": {
+                                "options": {
+                                    "chart": {
+                                        "type": "waterfall",
+                                        "marginTop": 30
+                                    },
+                                    "title": {
+                                        "text": "Quality of Earnings Bridge"
+                                    },
+                                    "xAxis": {
+                                        "type": "category",
+                                        "labels": {
+                                            "rotation": -35
+                                        }
+                                    },
+                                    "yAxis": {
+                                        "title": {
+                                            "text": "EBITDA"
+                                        },
+                                        "plotLines": [],
+                                        "maxPadding": 0.1
+                                    },
+                                    "legend": {
+                                        "enabled": false
+                                    },
+                                    "series": [
+                                        {
+                                            "data": [
+                                                {
+                                                    "y": 4.4,
+                                                    "name": "Management adjusted",
+                                                    "color": "#C2BAFF",
+                                                    "custom": {
+                                                        "display": "$4.4M"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "$4.4M",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": -0.293,
+                                                    "name": "Non-recurring income & expense",
+                                                    "color": "#D9534F",
+                                                    "custom": {
+                                                        "display": "-$293.0K"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "-$293.0K",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 0.062,
+                                                    "name": "Sales and cost corrections",
+                                                    "color": "#2E9E5B",
+                                                    "custom": {
+                                                        "display": "+$62.0K"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "+$62.0K",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 0.054,
+                                                    "name": "Inventory true-ups",
+                                                    "color": "#2E9E5B",
+                                                    "custom": {
+                                                        "display": "+$54.0K"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "+$54.0K",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 0.051,
+                                                    "name": "Changes to operations",
+                                                    "color": "#2E9E5B",
+                                                    "custom": {
+                                                        "display": "+$51.0K"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "+$51.0K",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 0.005,
+                                                    "name": "Cash to accrual adjustments",
+                                                    "color": "#2E9E5B",
+                                                    "custom": {
+                                                        "display": "+$5.0K"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "+$5.0K",
+                                                        "enabled": true
+                                                    }
+                                                },
+                                                {
+                                                    "y": 4.279,
+                                                    "name": "Recommended",
+                                                    "color": "#2E2270",
+                                                    "isSum": true,
+                                                    "custom": {
+                                                        "display": "$4.3M"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "$4.3M",
+                                                        "enabled": true
+                                                    }
+                                                }
+                                            ],
+                                            "name": "EBITDA bridge"
+                                        },
+                                        {
+                                            "data": [
+                                                {
+                                                    "y": 4.279,
+                                                    "name": "Reported (floor)",
+                                                    "color": "#C2BAFF",
+                                                    "custom": {
+                                                        "display": "$4.3M"
+                                                    },
+                                                    "dataLabels": {
+                                                        "format": "$4.3M",
+                                                        "enabled": true
+                                                    }
+                                                }
+                                            ],
+                                            "name": "EBITDA bridge",
+                                            "type": "column",
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>{point.custom.display}</b>"
+                                            },
+                                            "borderWidth": 0,
+                                            "showInLegend": false
+                                        }
+                                    ],
+                                    "tooltip": {
+                                        "pointFormat": "{series.name}<br/><b>{point.custom.display}</b>"
+                                    },
+                                    "plotOptions": {
+                                        "waterfall": {
+                                            "lineColor": "#2E2270",
+                                            "dataLabels": {
+                                                "y": -20,
+                                                "crop": false,
+                                                "style": {
+                                                    "fontSize": "10px",
+                                                    "fontWeight": "bold",
+                                                    "textOutline": "none"
+                                                },
+                                                "inside": false,
+                                                "enabled": true,
+                                                "overflow": "none",
+                                                "allowOverlap": true,
+                                                "verticalAlign": "top"
+                                            },
+                                            "borderWidth": 0
+                                        }
+                                    }
+                                }
+                            },
+                            "output_format": "ReportChart",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "- **Recommended 2024A EBITDA remains at $4.279M because the seller's $0.121M adjustment stack is not supported on a historical basis** — Management's 2024A adjusted EBITDA is **$4.400M** [1], so the buyer's number is **$0.121M** lower [1]. The disclosed 2024A adjustments lack supported historical amounts, so the bridge falls back to booked earnings rather than the seller's uplift [1].\n- **The largest uplift is a bundled $0.293M non-recurring bucket that cannot be validated by line item** — Transaction costs, recruiting, severance, brand work, expensed capital items, and accounting entries are combined into **$0.293M** [1], so the materials do not show which portion is truly one-off and which belongs in run-rate [1]. That amount is therefore removed from the buyer's EBITDA basis [1].\n- **Unsupported deductions also keep the bridge from moving above or below the seller's own number** — 2024A exclusions include inventory true-ups of $0.054M [1], operations changes of $0.051M [1], sales and cost corrections of $0.062M [1], and cash-to-accrual entries of $0.005M [1]. In 2023A, the schedule lowered EBITDA by a net **$0.059M** versus reported EBITDA [1], so the recommended number stays at management's own **$2.226M** [1].\n- **The EBITDA decline sits below gross profit, but the closed-period split between operating performance and adjustments is not quantified** — Reported gross margin held at **88.0%** in 2024A [2][3], while adjusted EBITDA margin fell to **21.6%** [1] as payroll, marketing, and selling costs absorbed the gross-profit benefit [3][4][5]. The only disclosed incremental EBITDA margin is 25.4% for 2025P versus 2024A [3], so no historical flow-through measure isolates closed-period operating conversion [3].\n- **Potential payroll pressure and buyer-specific costs are outside the historical bridge** — An inferred **$0.940M** annualized payroll gap from late-2024 hiring is based on quarterly ratios rather than booked monthly payroll detail, so it is not used to push EBITDA below the 2024A reported figure [3][4][5]. Founder replacement cost and post-acquisition governance, audit, reporting, and insurance costs are also excluded; the only disclosed historical insurance amount is **$0.035M** in 2024A [2][3].",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        }
+                    ],
+                    "restricted_citations": {},
+                    "summary_headline": "Recommended EBITDA stays at $4.279M in 2024A because the reported profit is supported by booked earnings rather than unsupported seller adjustments.",
+                    "is_beta": true
+                },
+                {
+                    "name": "gap_census",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Diligence & Gaps",
+                    "sub_ordering": 5,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 999999999,
+                    "id": "gap_census_financials_17_35b7f6bc_3d5a9d53",
+                    "section_slug": "17_financials_gap_census",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "8": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                        "9": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                        "10": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=48",
+                        "11": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                        "12": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                        "13": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                        "14": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                        "15": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=3",
+                        "16": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=28",
+                        "17": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "18": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "19": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                        "20": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=8"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": "*4 additional item(s) continued in the appendix.*",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "title": "Earnings Adjustment Support Pack",
+                            "output": "Provide the detailed earnings-adjustment support pack by period, including line-item schedules and source documents for each disclosed adjustment, because the 2023 itemized adjustments add to about **$(58)K** while the bridge shows total adjustments of **$(59)K**, and the disclosed adjustments are otherwise supported only by management schedules [8]. Without underlying support, the adjusted EBITDA bridge used in the materials cannot be fully validated, and the 2023 bridge does not add cleanly on its face [6][8].",
+                            "output_config": {
+                                "show_icon": false
+                            },
+                            "output_format": "ReportRecommendation"
+                        },
+                        {
+                            "title": "Product Gross Sales Reconciliation",
+                            "output": "Provide an exact product-by-period gross sales schedule, including any omitted products and a reconciliation to consolidated gross sales, because the disclosed product totals do not fully tie in multiple periods and Daily Hydration 2024 is shown as **$0.5M** on one exhibit and **$0.6M** on another [1][2][3][9][10][7]. The product mix and product growth reads rest on figures that do not fully reconcile to total gross sales, so the starting point for several product conclusions remains uncertain [1][2][3][10][7].",
+                            "output_config": {
+                                "show_icon": false
+                            },
+                            "output_format": "ReportRecommendation"
+                        },
+                        {
+                            "title": "Channel Revenue Reconciliation Schedule",
+                            "output": "Provide the exact channel-by-period net revenue schedule and reconciliation to consolidated net revenue, because disclosed channel totals tie only approximately in 2023A through 2026P and do not tie in 2022A, when DTC and Amazon sum to about **$4.5M** versus consolidated net revenue of **$4.271M** [4][5][6]. Channel mix, customer concentration, and channel growth reads rely on exact channel sizes, and those disclosed figures do not fully reconcile to the consolidated revenue line [4][5][6].",
+                            "output_config": {
+                                "show_icon": false
+                            },
+                            "output_format": "ReportRecommendation"
+                        },
+                        {
+                            "title": "Retail Tradespend Support",
+                            "output": "Provide retailer-by-retailer tradespend schedules and program terms supporting the step-up from **$0.259M** in 2024A to **$1.602M** in 2025P [7]. If promotional deductions rise differently from plan, the retail expansion can carry more margin dilution than the materials currently show [7].",
+                            "output_config": {
+                                "show_icon": false
+                            },
+                            "output_format": "ReportRecommendation"
+                        },
+                        {
+                            "title": "2024 To 2025 EBITDA Cost Bridge",
+                            "output": "Provide a 2024A-to-2025P bridge separating temporary launch costs from the steady-state payroll and marketing base behind the move from **27.5%** adjusted EBITDA margin in 2023A to **21.6%** in 2024A and the projected recovery to **23.4%** in 2025P [6][7][11][12]. The forward EBITDA read remains uncertain until the materials show which parts of the 2024 spending step-up were temporary and which are now part of the ongoing cost base [6][7][11][12].",
+                            "output_config": {
+                                "show_icon": false
+                            },
+                            "output_format": "ReportRecommendation"
+                        },
+                        {
+                            "title": "Payroll Annualization Bridge",
+                            "output": "Provide monthly payroll registers, headcount by start date, and a booked-to-run-rate bridge for 2024 hires supporting the inferred **$0.94M** payroll annualization adjustment [7][11][12]. If the late-2024 team cost is materially above the booked 2024 average, the historical EBITDA base can overstate the earnings level carried into the next period [7][11][12].",
+                            "output_config": {
+                                "show_icon": false
+                            },
+                            "output_format": "ReportRecommendation"
+                        }
+                    ],
+                    "restricted_citations": {},
+                    "summary_headline": "The product, channel, and adjusted EBITDA tie-outs are still open, but the disclosed variances are not large enough to prevent the memo from being used as a directional read while those schedules are clarified."
+                },
+                {
+                    "name": "projected_revenue",
+                    "type": "sub_section",
+                    "cta_to": null,
+                    "children": [],
+                    "has_title": false,
+                    "is_dynamic": true,
+                    "display_text": "Revenue Projections",
+                    "sub_ordering": 6,
+                    "display_enabled": true,
+                    "tags": [],
+                    "is_hidden": false,
+                    "ordering": 999999999,
+                    "id": "projected_revenue_financials_17_35b7f6bc_999755b2",
+                    "section_slug": "17_financials_projected_revenue",
+                    "citations": {
+                        "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                        "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                        "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                        "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                        "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                        "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22"
+                    },
+                    "show_citations": false,
+                    "ui_type": null,
+                    "display_properties": {
+                        "font_weight": "bold",
+                        "font_size": 12,
+                        "heading_underline": false
+                    },
+                    "output": [
+                        {
+                            "output": "*The gap reflects a forecast that leans on new retail distribution and promotional execution before those channels have demonstrated repeatable volume, while the 2024 mix was still heavily concentrated in a few accounts [1][2][3][4][5][6].*",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": "**Scenario Chart**",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": {
+                                "options": {
+                                    "chart": {
+                                        "type": "line"
+                                    },
+                                    "title": {
+                                        "text": "Net revenue, scenario paths against the management plan"
+                                    },
+                                    "xAxis": {
+                                        "categories": [
+                                            "2024A",
+                                            "2025P",
+                                            "2026P",
+                                            "2027P"
+                                        ]
+                                    },
+                                    "yAxis": {
+                                        "title": {
+                                            "text": "Revenue"
+                                        },
+                                        "labels": {
+                                            "format": "{value}"
+                                        },
+                                        "plotLines": [],
+                                        "maxPadding": 0.2
+                                    },
+                                    "legend": {
+                                        "enabled": true
+                                    },
+                                    "series": [
+                                        {
+                                            "data": [
+                                                [
+                                                    17.0,
+                                                    17.0
+                                                ],
+                                                [
+                                                    26.3,
+                                                    34.3
+                                                ],
+                                                [
+                                                    33.8,
+                                                    50.9
+                                                ],
+                                                [
+                                                    40.8,
+                                                    70.0
+                                                ]
+                                            ],
+                                            "name": "Downside-upside range",
+                                            "type": "arearange",
+                                            "color": "#94A3B8",
+                                            "marker": {
+                                                "enabled": false
+                                            },
+                                            "zIndex": 0,
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>${point.y:.1f}M</b>"
+                                            },
+                                            "lineWidth": 0,
+                                            "fillOpacity": 0.25
+                                        },
+                                        {
+                                            "data": [
+                                                17.0,
+                                                26.3,
+                                                33.8,
+                                                40.8
+                                            ],
+                                            "name": "Downside",
+                                            "type": "line",
+                                            "color": "#DC2626",
+                                            "marker": {
+                                                "enabled": true
+                                            },
+                                            "zIndex": 1,
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>${point.y:.1f}M</b>"
+                                            },
+                                            "dashStyle": null,
+                                            "lineWidth": 1.5,
+                                            "dataLabels": {
+                                                "format": "${point.y:.1f}M",
+                                                "enabled": true
+                                            }
+                                        },
+                                        {
+                                            "data": [
+                                                17.0,
+                                                30.5,
+                                                41.6,
+                                                53.8
+                                            ],
+                                            "name": "Base case",
+                                            "type": "line",
+                                            "color": "#2563EB",
+                                            "marker": {
+                                                "enabled": true
+                                            },
+                                            "zIndex": 1,
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>${point.y:.1f}M</b>"
+                                            },
+                                            "dashStyle": null,
+                                            "lineWidth": 3,
+                                            "dataLabels": {
+                                                "format": "${point.y:.1f}M",
+                                                "enabled": true
+                                            }
+                                        },
+                                        {
+                                            "data": [
+                                                17.0,
+                                                34.3,
+                                                50.9,
+                                                70.0
+                                            ],
+                                            "name": "Upside",
+                                            "type": "line",
+                                            "color": "#16A34A",
+                                            "marker": {
+                                                "enabled": true
+                                            },
+                                            "zIndex": 1,
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>${point.y:.1f}M</b>"
+                                            },
+                                            "dashStyle": null,
+                                            "lineWidth": 1.5,
+                                            "dataLabels": {
+                                                "format": "${point.y:.1f}M",
+                                                "enabled": true
+                                            }
+                                        },
+                                        {
+                                            "data": [
+                                                17.0,
+                                                42.2,
+                                                58.1,
+                                                null
+                                            ],
+                                            "name": "Management plan",
+                                            "type": "line",
+                                            "color": "#6B7280",
+                                            "marker": {
+                                                "enabled": true
+                                            },
+                                            "zIndex": 1,
+                                            "tooltip": {
+                                                "pointFormat": "{series.name}<br/><b>${point.y:.1f}M</b>"
+                                            },
+                                            "dashStyle": "Dash",
+                                            "dataLabels": {
+                                                "format": "${point.y:.1f}M",
+                                                "enabled": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            "output_format": "ReportChart",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "**Scenario Summary**",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": {
+                                "zebra": true,
+                                "columns": [
+                                    {
+                                        "key": "case",
+                                        "title": "Case",
+                                        "dataIndex": "case"
+                                    },
+                                    {
+                                        "key": "2024",
+                                        "title": "2024A",
+                                        "dataIndex": "2024",
+                                        "headerStyle": {
+                                            "align": "right"
+                                        }
+                                    },
+                                    {
+                                        "key": "2025",
+                                        "title": "2025P",
+                                        "dataIndex": "2025",
+                                        "headerStyle": {
+                                            "align": "right"
+                                        }
+                                    },
+                                    {
+                                        "key": "2026",
+                                        "title": "2026P",
+                                        "dataIndex": "2026",
+                                        "headerStyle": {
+                                            "align": "right"
+                                        }
+                                    },
+                                    {
+                                        "key": "2027",
+                                        "title": "2027P",
+                                        "dataIndex": "2027",
+                                        "headerStyle": {
+                                            "align": "right"
+                                        }
+                                    },
+                                    {
+                                        "key": "cagr",
+                                        "title": "CAGR",
+                                        "dataIndex": "cagr",
+                                        "headerStyle": {
+                                            "align": "right"
+                                        }
+                                    },
+                                    {
+                                        "key": "key_insight",
+                                        "title": "Key Insight",
+                                        "position": "left",
+                                        "dataIndex": "key_insight"
+                                    }
+                                ],
+                                "dataSource": [
+                                    {
+                                        "2024": "$17.00M",
+                                        "2025": "$26.29M",
+                                        "2026": "$33.75M",
+                                        "2027": "$40.76M",
+                                        "cagr": "33.85%",
+                                        "case": "**Downside**",
+                                        "key_insight": "The downside case requires DTC and Amazon growth to moderate while Target and Walmart deliver no material 2025 uplift beyond their 2024 revenue levels if their respective launches fail to improve sell-through[1][2]."
+                                    },
+                                    {
+                                        "2024": "$17.00M",
+                                        "2025": "$30.45M",
+                                        "2026": "$41.65M",
+                                        "2027": "$53.80M",
+                                        "cagr": "46.81%",
+                                        "case": "**Base**",
+                                        "key_insight": "The base case requires continued DTC and Amazon scaling, partial 2025 benefit from Target's expansion to five SKUs across 1,900 stores, and partial benefit from Walmart's move into the Beverage set[1][2]."
+                                    },
+                                    {
+                                        "2024": "$17.00M",
+                                        "2025": "$34.30M",
+                                        "2026": "$50.93M",
+                                        "2027": "$70.01M",
+                                        "cagr": "60.29%",
+                                        "case": "**Upside**",
+                                        "key_insight": "The upside case requires materially stronger channel growth than the base case, yet remains below management's plan at $34.30M versus $42.15M in 2025 and $50.93M versus $58.11M in 2026."
+                                    },
+                                    {
+                                        "2024": "$17.00M",
+                                        "2025": "$42.15M",
+                                        "2026": "$58.11M",
+                                        "2027": "\\-",
+                                        "cagr": "84.88%",
+                                        "case": "**Management plan**",
+                                        "key_insight": "\\-"
+                                    },
+                                    {
+                                        "2024": "$0.00",
+                                        "2025": "-$11.70M",
+                                        "2026": "-$16.46M",
+                                        "2027": "\\-",
+                                        "cagr": "\\-",
+                                        "case": "Gap, base to plan",
+                                        "key_insight": "\\-"
+                                    }
+                                ]
+                            },
+                            "output_format": "ReportTable",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "**How Revenue Is Constructed**",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": {
+                                "zebra": true,
+                                "columns": [
+                                    {
+                                        "key": "line",
+                                        "title": "Line",
+                                        "dataIndex": "line"
+                                    },
+                                    {
+                                        "key": "equation",
+                                        "title": "Revenue equation",
+                                        "position": "left",
+                                        "dataIndex": "equation"
+                                    },
+                                    {
+                                        "key": "drivers",
+                                        "title": "Drivers forecast",
+                                        "position": "left",
+                                        "dataIndex": "drivers"
+                                    },
+                                    {
+                                        "key": "evidence",
+                                        "title": "Evidence behind the drivers",
+                                        "position": "left",
+                                        "dataIndex": "evidence"
+                                    }
+                                ],
+                                "dataSource": [
+                                    {
+                                        "line": "**DTC**",
+                                        "drivers": "revenue",
+                                        "equation": "revenue",
+                                        "evidence": "\\-"
+                                    },
+                                    {
+                                        "line": "**Amazon**",
+                                        "drivers": "revenue",
+                                        "equation": "revenue",
+                                        "evidence": "Amazon growth discontinuity (anomaly)"
+                                    },
+                                    {
+                                        "line": "**Retail/Target**",
+                                        "drivers": "revenue",
+                                        "equation": "revenue",
+                                        "evidence": "Target incremental SKU commitment (commitment); WaterBoy Target sales velocity (benchmark); Target forecast discontinuity (anomaly)"
+                                    },
+                                    {
+                                        "line": "**Retail/Walmart**",
+                                        "drivers": "revenue",
+                                        "equation": "revenue",
+                                        "evidence": "Walmart Beverage-set placement (commitment); Management expected Walmart Beverage-set sales velocity (benchmark); Walmart placement change (anomaly)"
+                                    }
+                                ]
+                            },
+                            "output_format": "ReportTable",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "**Assumption Across Cases**",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": {
+                                "zebra": true,
+                                "columns": [
+                                    {
+                                        "key": "line",
+                                        "title": "Line",
+                                        "dataIndex": "line"
+                                    },
+                                    {
+                                        "key": "assumption",
+                                        "title": "Assumption",
+                                        "position": "left",
+                                        "dataIndex": "assumption"
+                                    },
+                                    {
+                                        "key": "downside",
+                                        "title": "Downside",
+                                        "dataIndex": "downside",
+                                        "headerStyle": {
+                                            "align": "right"
+                                        }
+                                    },
+                                    {
+                                        "key": "base",
+                                        "title": "Base",
+                                        "dataIndex": "base",
+                                        "headerStyle": {
+                                            "align": "right"
+                                        }
+                                    },
+                                    {
+                                        "key": "upside",
+                                        "title": "Upside",
+                                        "dataIndex": "upside",
+                                        "headerStyle": {
+                                            "align": "right"
+                                        }
+                                    },
+                                    {
+                                        "key": "basis",
+                                        "title": "Basis for the base case",
+                                        "position": "left",
+                                        "dataIndex": "basis"
+                                    }
+                                ],
+                                "dataSource": [
+                                    {
+                                        "base": "30, 25, 20%",
+                                        "line": "**DTC**",
+                                        "basis": "Base assumes DTC remains an operating growth channel but credits only a moderated continuation of its closed-period expansion; downside applies a further demand-acquisition slowdown. Downside floor uses the disclosed history because closed_cagr and growth_band minimum exceed base while exit_rate is not disclosed.",
+                                        "upside": "40, 30, 25%",
+                                        "downside": "25, 20, 15%",
+                                        "assumption": "**revenue**"
+                                    },
+                                    {
+                                        "base": "60, 45, 35%",
+                                        "line": "**Amazon**",
+                                        "basis": "Base credits continued Amazon scaling but sharply discounts the explained 2024A discontinuity and therefore does not extrapolate the prior closed-period growth rate. Downside floor uses the disclosed history because closed_cagr and growth_band minimum exceed base while exit_rate is not disclosed.",
+                                        "upside": "80, 60, 45%",
+                                        "downside": "45, 35, 25%",
+                                        "assumption": "**revenue**"
+                                    },
+                                    {
+                                        "base": "80, 25, 20%",
+                                        "line": "**Retail/Target**",
+                                        "basis": "Base credits partial annualized benefit from Target's committed Q2 2025 expansion from one SKU to five SKUs, while materially discounting the prospective management revenue forecast. Downside assumes the closed 2024A revenue level is retained but the incremental SKU expansion does not translate into material in-year sell-through.",
+                                        "upside": "120, 35, 25%",
+                                        "downside": "0, 15, 10%",
+                                        "assumption": "**revenue**"
+                                    },
+                                    {
+                                        "base": "60, 50, 30%",
+                                        "line": "**Retail/Walmart**",
+                                        "basis": "Base credits partial benefit from the committed Q2 2025 Walmart move from OTC to Beverage but discounts the prospective management sell-through expectation and forecast. Downside holds the 2024A level if the new placement does not materially improve velocity in its first year.",
+                                        "upside": "80, 70, 40%",
+                                        "downside": "0, 20, 15%",
+                                        "assumption": "**revenue**"
+                                    }
+                                ]
+                            },
+                            "output_format": "ReportTable",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": "**Findings**",
+                            "output_config": {
+                                "border_left": false
+                            },
+                            "output_format": "MarkDownSummary",
+                            "output_format_name": "Agentic",
+                            "output_instruction": null
+                        },
+                        {
+                            "output": {
+                                "cards": [
+                                    {
+                                        "table": null,
+                                        "title": "Plan comparison",
+                                        "badges": [],
+                                        "content": "- **Our 2025 base case trails management's plan.** — We model **$30.45M** versus management's **$42.15M**, a **-$11.70M** gap; management still sits above our $34.30M upside case.\n- **Our 2026 base case also trails management's plan.** — We model **$41.65M** versus management's **$58.11M**, a **-$16.46M** gap; the shortfall widens versus 2025 and management remains above our $50.93M upside case.\n- **Management's CAGR implies growth beyond our supportable range.** — Management's **84.88%** consolidated CAGR exceeds our **46.81%** base CAGR and 60.29% upside CAGR, so the plan requires growth beyond the full supportable scenario range.",
+                                        "sources": [],
+                                        "subtitle": "",
+                                        "accent_title_color": true
+                                    }
+                                ],
+                                "columns": 1
+                            },
+                            "output_format": "ReportSegmentCards",
+                            "output_format_name": "Agentic"
+                        },
+                        {
+                            "output": {
+                                "cards": [
+                                    {
+                                        "table": null,
+                                        "title": "Evidence behind the shortfall",
+                                        "badges": [],
+                                        "content": "- **Amazon's 2024 growth step is not a clean run-rate.** — Amazon generated **$10.7M**, or 52.6%, of 2024A net revenue, and its **174.36%** growth step was driven by digital marketing and rising brand awareness; the base case therefore discounts rather than extrapolates that discontinuity [3][4][5].\n- **Target's rollout supports the forecast, but much of the upside is still prospective.** — Committed expansion adds **four SKUs** to reach five across **1,900 stores** by Q2 2025, but management's 2025 forecast also depends on shared promotions, side-cap placement, and sampling that remain prospective rather than achieved evidence [1].\n- **Walmart contributes only a future retail test.** — The two-SKU Beverage-set placement begins in **Q2 2025** after transition from OTC, so the first-year uplift depends on new placement turning into velocity rather than on closed-period Beverage-set performance [2].\n- **Target's retail sales metric does not map directly to revenue.** — Target's disclosed **$33.98** per-store-per-week-per-SKU measure is retail sales dollars, while Target revenue is stated as net sales, so the two bases are not directly interchangeable [1].\n- **Revenue remains concentrated in a few channels.** — Weekend Recovery represented **$17.1M**, or 79.4%, of 2024A product gross sales, while Amazon represented **$10.7M**, or 52.6%, of 2024A net revenue [6][3][4][5].",
+                                        "sources": [],
+                                        "subtitle": "",
+                                        "accent_title_color": true
+                                    }
+                                ],
+                                "columns": 1
+                            },
+                            "output_format": "ReportSegmentCards",
+                            "output_format_name": "Agentic"
+                        }
+                    ],
+                    "restricted_citations": {},
+                    "summary_headline": "Management's 2026 revenue plan is not supportable on current evidence.",
+                    "is_beta": true
+                }
+            ],
+            "display_text": "Financial Overview",
+            "display_enabled": true,
+            "tags": [],
+            "is_hidden": false,
+            "id": "financials_17_35b7f6bc",
+            "ordering": 7,
+            "ui_type": null,
+            "display_properties": {
+                "font_weight": "bold",
+                "font_size": 12,
+                "heading_underline": false
+            },
+            "show_citations": true,
+            "citations": {
+                "1": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                "2": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                "3": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                "4": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                "5": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                "6": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "7": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "8": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                "9": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                "10": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=48",
+                "11": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                "12": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                "13": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                "14": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                "15": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=3",
+                "16": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=28",
+                "17": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                "18": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                "19": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                "20": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=8",
+                "21": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "22": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                "23": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                "24": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "25": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                "26": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                "27": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                "28": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                "29": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                "30": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                "31": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                "32": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                "33": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                "34": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "35": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                "36": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                "37": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                "38": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                "39": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                "40": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                "41": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                "42": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "43": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                "44": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25",
+                "45": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                "46": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                "47": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                "48": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "49": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                "50": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                "51": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                "52": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                "53": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                "54": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                "55": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                "56": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "57": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                "58": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25",
+                "59": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                "60": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                "61": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                "62": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "63": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                "64": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                "65": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                "66": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                "67": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                "68": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                "69": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                "70": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "71": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                "72": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=25",
+                "73": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "74": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "75": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                "76": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                "77": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                "78": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                "79": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                "80": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                "81": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                "82": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                "83": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "84": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "85": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                "86": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                "87": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=3",
+                "88": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=28",
+                "89": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22",
+                "90": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=23",
+                "91": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=24",
+                "92": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=41",
+                "93": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                "94": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "95": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "96": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=54",
+                "97": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=47",
+                "98": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=48",
+                "99": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=52",
+                "100": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=53",
+                "101": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=15",
+                "102": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=45",
+                "103": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=3",
+                "104": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=28",
+                "105": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                "106": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                "107": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=13",
+                "108": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=8",
+                "109": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=43",
+                "110": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=44",
+                "111": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=42",
+                "112": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=50",
+                "113": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=51",
+                "114": "https://doc.binocs.co/18174/CIM/Project_DeLorean_CIM_Meaningful_Partners_(3)_(4).pdf?page=22"
+            },
+            "output": [],
+            "restricted_citations": {},
+            "nav_group_key": null,
+            "nav_group_label": null
+        }
+    ],
+    "is_sample_report": false
+}
