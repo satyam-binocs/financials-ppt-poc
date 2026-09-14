@@ -4,10 +4,12 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from PIL import Image
 
 from report_pptx import FixedDeckPlanner, IntelligentDeckPlanner, ReportLoader, ReportNormalizer, SemanticValidator
 from report_pptx.config import LlmConfig
 from report_pptx.llm import AnthropicMessagesGateway, OpenAIResponsesGateway, RunUsageBudget, UsageLimitExceeded, create_gateway
+from report_pptx.visual_review import VisualReviewer
 
 
 class SemanticCoreTests(unittest.TestCase):
@@ -143,6 +145,40 @@ class SemanticCoreTests(unittest.TestCase):
         self.assertEqual(slides[0]["density"], "comfortable")
         self.assertEqual(deck["planner"]["kind"], "llm")
 
+    def test_candidate_plans_only_offer_minimum_slide_count(self):
+        planner = IntelligentDeckPlanner(LlmConfig(), Path.cwd(), object())
+        from report_pptx.planning import PlanningGroup, PlanningItem
+        items = [
+            PlanningItem(f"i{index}", "text", "body", {"comfortable": 100, "compact": 90, "dense": 80})
+            for index in range(3)
+        ]
+        candidates = planner._candidate_plans(PlanningGroup("g", "summary", "Title", items, [{}]))
+        self.assertEqual({len(candidate["slides"]) for candidate in candidates}, {1})
+
+    def test_llm_can_move_related_text_beside_bar_chart(self):
+        class Gateway:
+            def complete(self, *, task, payload, **kwargs):
+                self.task = task
+                return {"candidate_id": "move_1", "rationale": "The point explains the chart."}
+
+        gateway = Gateway()
+        planner = IntelligentDeckPlanner(LlmConfig(), Path.cwd(), gateway)
+        slides = planner._compose_chart_text([
+            {
+                "id": "s:summary:llm:1", "kind": "summary", "title": "Revenue by Product",
+                "paragraphs": [{"text": "One concise chart insight.", "kind": "bullet"}],
+                "planning_group_id": "s:summary", "notes": "[1] source",
+            },
+            {
+                "id": "chart", "kind": "chart", "title": "Revenue by Product", "section": "Revenue by Product",
+                "chart": {"kind": "bar"}, "notes": "[2] source",
+            },
+        ])
+        self.assertEqual(gateway.task, "chart_text_composition")
+        self.assertEqual(len(slides), 1)
+        self.assertEqual(slides[0]["kind"], "chart_text")
+        self.assertEqual(slides[0]["paragraphs"][0]["text"], "One concise chart insight.")
+
     def test_llm_failure_does_not_fall_back_when_disabled(self):
         class Gateway:
             def complete(self, **kwargs):
@@ -230,6 +266,34 @@ class SemanticCoreTests(unittest.TestCase):
             AnthropicMessagesGateway._output_text(response),
             '{"slides": [], "rationale": "ok"}',
         )
+
+    def test_visual_review_enforces_scores_and_returns_group_feedback(self):
+        class Gateway:
+            def complete_with_images(self, *, payload, **kwargs):
+                return {"reviews": [
+                    {
+                        "slide_id": slide["slide_id"], "accepted": True,
+                        "aesthetic_score": 6 if index == 0 else 9,
+                        "readability_score": 9, "balance_score": 9,
+                        "issues": [{"code": "too_sparse", "severity": "warning", "description": "Excess empty space"}] if index == 0 else [],
+                        "repair_feedback": "Merge related points" if index == 0 else "No repair needed",
+                    }
+                    for index, slide in enumerate(payload["slides_in_image_order"])
+                ]}
+
+        with tempfile.TemporaryDirectory() as directory:
+            build = Path(directory)
+            Image.new("RGB", (32, 18), "white").save(build / "slide-001.png")
+            Image.new("RGB", (32, 18), "white").save(build / "slide-002.png")
+            spec = {"slides": [
+                {"id": "s1", "kind": "summary", "title": "One", "planning_group_id": "g1", "paragraphs": [{"text": "A"}]},
+                {"id": "s2", "kind": "chart", "title": "Two"},
+            ]}
+            review = VisualReviewer(LlmConfig(visual_review_batch_size=2), Gateway()).review(spec, build)
+        self.assertFalse(review.accepted)
+        self.assertFalse(review.hard_failures)
+        self.assertIn("g1", review.group_feedback)
+        self.assertIn("Excess empty space", review.group_feedback["g1"])
 
 
 if __name__ == "__main__":

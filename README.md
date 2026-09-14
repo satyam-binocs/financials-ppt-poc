@@ -24,6 +24,8 @@ Automatic deterministic fallback is implemented but disabled by default. Enable 
 
 Each uncached API attempt is checked against per-run request, token, and estimated-cost ceilings before it is sent. The gateway reserves `MAX_LLM_OUTPUT_TOKENS_PER_CALL`, then reconciles the ledger with the API-reported token usage. Cached responses do not consume the per-run API budget. Keep the configured per-token prices aligned with the selected planning model.
 
+When `ENABLE_LLM_VISUAL_REVIEW=true`, Phase 4 renders a private candidate deck, converts slide previews to upload-efficient review images, and sends adjacent slide batches to `VISUAL_REVIEW_MODEL`. Slides must meet the configured aesthetic, readability, and balance thresholds. Rejected narrative groups are replanned with the visual feedback and rendered again, up to `MAX_SLIDE_REPAIR_ATTEMPTS`. The final output is written only after visual acceptance; deterministic fallback remains controlled separately.
+
 Use `--strict` to return a nonzero exit code for warnings as well as errors.
 
 ## Run tests

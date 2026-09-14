@@ -3,10 +3,10 @@
 from .core import ReportLoader, ReportNormalizer, SemanticValidator, to_dict
 from .render import ArtifactToolRenderer, FixedDeckPlanner, Phase2Result
 from .planning import IntelligentDeckPlanner, PlanValidationError
-from .workflow import Phase3Workflow, WorkflowState
+from .workflow import Phase3Workflow, Phase4Workflow, WorkflowState
 
 __all__ = [
     "ArtifactToolRenderer", "FixedDeckPlanner", "Phase2Result", "ReportLoader",
     "ReportNormalizer", "SemanticValidator", "to_dict", "IntelligentDeckPlanner",
-    "PlanValidationError", "Phase3Workflow", "WorkflowState",
+    "PlanValidationError", "Phase3Workflow", "Phase4Workflow", "WorkflowState",
 ]

@@ -45,22 +45,32 @@ Prefer the fewest slides that remain readable. Use available space well. Avoid a
 distribution is possible. Group related ideas together and balance adjacent slides by rendered height, not item count.
 Choose exactly one candidate_id from the supplied feasible candidates. Prefer comfortable density when it fits, compact when useful,
 and dense only when it avoids an unnecessary sparse continuation. Every candidate already preserves content and physical capacity."""
+    COMPOSITION_INSTRUCTIONS = """You are planning one chart section in a financial presentation.
+Choose how many trailing narrative points should move beside the chart. Prefer a combined chart-and-text slide when the text
+directly explains the chart and remains readable in the supplied side column. Avoid leaving a sparse narrative slide. Choose
+exactly one supplied candidate; all candidates preserve source order and content."""
 
     def __init__(self, config: LlmConfig, workspace: Path, gateway: StructuredGateway | None = None) -> None:
         self.config = config
         self.workspace = workspace
         self.gateway = gateway or create_gateway(config, workspace / "build" / "llm-cache")
         self.fallback = FixedDeckPlanner()
+        self._rejected_candidates: dict[str, set[str]] = {}
 
-    def plan(self, model: PresentationModel) -> dict[str, Any]:
+    def plan(self, model: PresentationModel, visual_feedback: dict[str, str] | None = None) -> dict[str, Any]:
         baseline = self.fallback.plan(model)
         if not self.config.enable_planning:
             return baseline
         try:
             self.config.validate()
             groups = self._groups(baseline["slides"])
-            replacements = {group.id: self._plan_group(group) for group in groups}
-            baseline["slides"] = self._replace_groups(baseline["slides"], replacements)
+            replacements = {
+                group.id: self._plan_group(group, (visual_feedback or {}).get(group.id))
+                for group in groups
+            }
+            baseline["slides"] = self._compose_chart_text(
+                self._replace_groups(baseline["slides"], replacements)
+            )
             baseline["planner"] = {
                 "kind": "llm", "provider": self.config.provider, "model": self.config.planning_model,
                 "deterministic_fallback_enabled": self.config.enable_deterministic_fallback,
@@ -75,8 +85,13 @@ and dense only when it avoids an unnecessary sparse continuation. Every candidat
                 return baseline
             raise
 
-    def _plan_group(self, group: PlanningGroup) -> list[dict[str, Any]]:
+    def _plan_group(self, group: PlanningGroup, visual_feedback: str | None = None) -> list[dict[str, Any]]:
         candidates = self._candidate_plans(group)
+        if visual_feedback:
+            rejected = self._rejected_candidates.get(group.id, set())
+            remaining = [candidate for candidate in candidates if candidate["id"] not in rejected]
+            if remaining:
+                candidates = remaining
         candidate_by_id = {candidate["id"]: candidate for candidate in candidates}
         schema = {
             "type": "object", "additionalProperties": False,
@@ -97,6 +112,9 @@ and dense only when it avoids an unnecessary sparse continuation. Every candidat
             ],
             "feasible_candidates": candidates,
         }
+        if visual_feedback:
+            payload["visual_feedback_from_previous_render"] = visual_feedback
+            payload["repair_instruction"] = "Choose a different feasible candidate that addresses this rendered-slide feedback."
         result = None
         validation_error = None
         for attempt in range(self.config.max_retries + 1):
@@ -118,6 +136,7 @@ and dense only when it avoids an unnecessary sparse continuation. Every candidat
                 if attempt == self.config.max_retries:
                     raise
         assert result is not None
+        self._rejected_candidates.setdefault(group.id, set()).add(result["candidate_id"])
         choices = candidate_by_id[result["candidate_id"]]["slides"]
         by_id = {item.id: item for item in group.items}
         source = group.source_slides[0]
@@ -129,6 +148,7 @@ and dense only when it avoids an unnecessary sparse continuation. Every candidat
             slide["id"] = f"{group.id}:llm:{page}"
             slide["title"] = group.title if page == 1 else f"{group.title} continued"
             slide["density"] = density
+            slide["planning_group_id"] = group.id
             slide["planner_rationale"] = result["rationale"]
             if group.kind == "recommendations":
                 source_items = [item for page_slide in group.source_slides for item in page_slide.get("items", [])]
@@ -184,10 +204,93 @@ and dense only when it avoids an unnecessary sparse continuation. Every candidat
             return (len(candidate["slides"]), round(sparse, 4), round(imbalance, 4), density_penalty)
 
         candidates.sort(key=score)
-        candidates = candidates[:128]
+        # The LLM decides the best split among equally compact feasible plans.
+        # Higher-slide-count plans only create whitespace and continuation pages.
+        minimum_slide_count = len(candidates[0]["slides"])
+        candidates = [candidate for candidate in candidates if len(candidate["slides"]) == minimum_slide_count][:128]
         for index, candidate in enumerate(candidates, 1):
             candidate["id"] = f"candidate_{index}"
         return candidates
+
+    def _compose_chart_text(self, slides: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        result = [dict(slide) for slide in slides]
+        index = 1
+        while index < len(result):
+            chart = result[index]
+            narrative = result[index - 1]
+            if (
+                chart.get("kind") != "chart"
+                or chart.get("chart", {}).get("kind") not in {"bar", "column"}
+                or narrative.get("kind") not in {"summary", "findings"}
+                or not narrative.get("paragraphs")
+                or self._base_title(narrative.get("title", "")) != chart.get("section")
+            ):
+                index += 1
+                continue
+
+            paragraphs = narrative["paragraphs"]
+            feasible_suffixes = [0]
+            for count in range(1, min(2, len(paragraphs)) + 1):
+                suffix = paragraphs[-count:]
+                if sum(len(item.get("text", "")) for item in suffix) <= 520:
+                    feasible_suffixes.append(count)
+            if len(feasible_suffixes) == 1:
+                index += 1
+                continue
+
+            candidate_ids = [f"move_{count}" for count in feasible_suffixes]
+            response = self.gateway.complete(
+                task="chart_text_composition",
+                instructions=self.COMPOSITION_INSTRUCTIONS,
+                payload={
+                    "section": chart.get("section"),
+                    "chart_title": chart.get("title"),
+                    "chart_kind": chart.get("chart", {}).get("kind"),
+                    "narrative_points": paragraphs,
+                    "candidates": [
+                        {
+                            "candidate_id": f"move_{count}",
+                            "points_moved_to_chart_slide": count,
+                            "remaining_narrative_points": len(paragraphs) - count,
+                            "moved_text": [item.get("text", "") for item in paragraphs[-count:]] if count else [],
+                        }
+                        for count in feasible_suffixes
+                    ],
+                },
+                schema={
+                    "type": "object", "additionalProperties": False,
+                    "required": ["candidate_id", "rationale"],
+                    "properties": {
+                        "candidate_id": {"type": "string", "enum": candidate_ids},
+                        "rationale": {"type": "string"},
+                    },
+                },
+            )
+            candidate_id = response.get("candidate_id")
+            if candidate_id not in candidate_ids:
+                raise PlanValidationError(f"Unknown chart composition candidate {candidate_id!r}")
+            count = int(candidate_id.rsplit("_", 1)[1])
+            if count:
+                moved = paragraphs[-count:]
+                remaining = paragraphs[:-count]
+                composite = {
+                    **chart,
+                    "id": f"{chart['id']}:with-text",
+                    "kind": "chart_text",
+                    "paragraphs": moved,
+                    "density": "compact",
+                    "planning_group_id": narrative.get("planning_group_id"),
+                    "planner_rationale": response["rationale"],
+                    "notes": "\n".join(filter(None, [narrative.get("notes", ""), chart.get("notes", "")])),
+                }
+                if remaining:
+                    narrative["paragraphs"] = remaining
+                    result[index] = composite
+                else:
+                    result[index - 1:index + 1] = [composite]
+                    index -= 1
+            index += 1
+        return result
 
     def _validate(self, group: PlanningGroup, result: dict[str, Any]) -> None:
         if not isinstance(result, dict) or not isinstance(result.get("slides"), list) or not result["slides"]:

@@ -62,18 +62,45 @@ function addParagraphs(slide, paragraphs, top = 168, density = "comfortable") {
     compact: { body: 21, lead: 23, bodyChars: 98, leadChars: 84, gap: 20 },
     dense: { body: 19, lead: 21, bodyChars: 108, leadChars: 92, gap: 16 },
   }[density] ?? { body: 23, lead: 25, bodyChars: 90, leadChars: 78, gap: 28 };
-  let y = top;
-  for (const paragraph of paragraphs) {
+  const singleFocus = paragraphs.length === 1;
+  const measurements = paragraphs.map((paragraph) => {
     const isLead = paragraph.kind === "lead";
     const prefix = paragraph.kind === "bullet" ? "•  " : "";
-    const fontSize = isLead ? densityStyle.lead : densityStyle.body;
+    const fontSize = singleFocus ? Math.max(isLead ? densityStyle.lead : densityStyle.body, 26) : isLead ? densityStyle.lead : densityStyle.body;
     const charsPerLine = isLead ? densityStyle.leadChars : densityStyle.bodyChars;
     const lineCount = Math.max(1, Math.ceil((prefix.length + paragraph.text.length) / charsPerLine));
     const height = Math.ceil(lineCount * fontSize * 1.28 + 8);
+    return { paragraph, isLead, prefix, fontSize, height };
+  });
+  const contentHeight = measurements.reduce((sum, item) => sum + item.height, 0)
+    + densityStyle.gap * Math.max(0, measurements.length - 1);
+  const availableHeight = 470;
+  let y = top + Math.max(0, (availableHeight - contentHeight) / 2);
+  for (const { paragraph, isLead, prefix, fontSize, height } of measurements) {
     textbox(slide, prefix + paragraph.text, { left: 96, top: y, width: 1064, height }, {
-      fontSize, bold: isLead, color: isLead ? theme.ink : theme.muted,
+      fontSize,
+      bold: isLead || singleFocus, color: isLead || singleFocus ? theme.ink : theme.muted,
     });
     y += height + densityStyle.gap;
+  }
+}
+
+function addSideParagraphs(slide, paragraphs) {
+  const measurements = paragraphs.map((paragraph) => {
+    const prefix = paragraph.kind === "bullet" ? "•  " : "";
+    const lines = Math.max(1, Math.ceil((prefix.length + paragraph.text.length) / 40));
+    return { paragraph, prefix, height: Math.ceil(lines * 19 * 1.28 + 8) };
+  });
+  const contentHeight = measurements.reduce((sum, item) => sum + item.height, 0)
+    + 22 * Math.max(0, measurements.length - 1);
+  let y = 176 + Math.max(0, (430 - contentHeight) / 2);
+  for (const { paragraph, prefix, height } of measurements) {
+    textbox(slide, prefix + paragraph.text, { left: 76, top: y, width: 382, height }, {
+      fontSize: 19,
+      bold: paragraph.kind === "lead",
+      color: paragraph.kind === "lead" ? theme.ink : theme.muted,
+    });
+    y += height + 22;
   }
 }
 
@@ -155,6 +182,7 @@ function addBridgeLabels(slide, chart) {
   const axisMin = Math.min(0, Math.floor(Math.min(...values)));
   const axisMax = Math.max(1, Math.ceil(Math.max(...values)));
   const plot = { left: 148, top: 167, right: 1172, bottom: 589 };
+  const zeroY = plot.bottom - ((0 - axisMin) / (axisMax - axisMin)) * (plot.bottom - plot.top);
   const step = (plot.right - plot.left) / categories.length;
   for (const series of chart.series) {
     for (const point of series.points) {
@@ -162,26 +190,33 @@ function addBridgeLabels(slide, chart) {
       const categoryIndex = categories.indexOf(point.category);
       const x = plot.left + step * (categoryIndex + 0.5);
       const y = plot.bottom - ((point.value - axisMin) / (axisMax - axisMin)) * (plot.bottom - plot.top);
-      const labelY = point.value < 0 ? y + 8 : y - 27;
-      slide.shapes.add({
-        geometry: "line",
-        position: { left: x, top: point.value < 0 ? y : y - 8, width: 1, height: 8 },
-        fill: "none",
-        line: { style: "solid", fill: point.value < 0 ? theme.negative : theme.primary, width: 1 },
-      });
+      // Reserve a full negative-axis band for negative bridge bars. Their value
+      // sits above the zero line while the category stays below the bar, which
+      // remains stable across PowerPoint, OnlyOffice, and LibreOffice.
+      const isNegative = point.value < 0;
+      const labelLeft = x - 46;
+      const labelY = isNegative ? zeroY - 30 : y - 27;
+      if (!isNegative) {
+        slide.shapes.add({
+          geometry: "line",
+          position: { left: x, top: y - 8, width: 1, height: 8 },
+          fill: "none",
+          line: { style: "solid", fill: theme.primary, width: 1 },
+        });
+      }
       const label = slide.shapes.add({
         geometry: "textbox",
-        position: { left: x - 43, top: labelY, width: 86, height: 20 },
-        fill: "none",
+        position: { left: labelLeft, top: labelY, width: 92, height: 20 },
+        fill: theme.background,
         line: { fill: "none", width: 0 },
       });
       label.text = point.display || `${point.value.toFixed(1)}`;
-      label.text.style = { typeface: family, fontSize: 12, bold: true, color: point.value < 0 ? theme.negative : theme.ink, alignment: "center", autoFit: "none" };
+      label.text.style = { typeface: family, fontSize: 12, bold: true, color: isNegative ? theme.negative : theme.ink, alignment: "center", autoFit: "none" };
     }
   }
 }
 
-function addChart(slide, chart) {
+function addChart(slide, chart, position = { left: 86, top: 158, width: 1108, height: 476 }) {
   let type = chart.kind;
   if (type === "range_line") type = "line";
   if (type === "waterfall") type = "bar";
@@ -191,10 +226,17 @@ function addChart(slide, chart) {
   const series = numericSeries(chart, categories);
   const isBar = type === "bar" || type === "column";
   const isWaterfall = chart.kind === "waterfall";
+  const displayCategories = isWaterfall
+    ? categories.map((category) => ({
+        "Non-recurring income & expense": "Non-recurring items",
+        "Sales and cost corrections": "Sales/cost corrections",
+        "Cash to accrual adjustments": "Cash/accrual adjustment",
+      })[category] ?? category)
+    : categories;
   const hasLegend = chart.kind === "range_line" || series.length > 1;
   const config = {
-    position: { left: 86, top: 158, width: 1108, height: 476 },
-    categories,
+    position,
+    categories: displayCategories,
     series,
     hasLegend,
     legend: { position: "bottom", overlay: false, textStyle: { typeface: family, fontSize: 12, fill: theme.muted } },
@@ -212,6 +254,10 @@ function addChart(slide, chart) {
   }
   if (isWaterfall) {
     config.hasLegend = false;
+    config.xAxis.tickLabelPosition = "low";
+    config.yAxis.min = -1;
+    config.yAxis.max = 5;
+    config.yAxis.majorUnit = 1;
     config.dataLabels = { showValue: false, textStyle: { typeface: family, fontSize: 11, bold: true, fill: theme.ink } };
     config.barOptions = { direction: "column", grouping: "clustered", gapWidth: 55, varyColors: series.length === 1 };
   } else if (isBar) {
@@ -261,9 +307,14 @@ for (const [zeroIndex, item] of slidesToRender.entries()) {
     slide.shapes.add({ geometry: "rect", position: { left: 72, top: 102, width: 12, height: 392 }, fill: theme.secondary, line: { fill: "none", width: 0 } });
     textbox(slide, item.title, { left: 116, top: 188, width: 980, height: 150 }, { fontSize: 48, bold: true, color: "#FFFFFF" });
     textbox(slide, item.subtitle, { left: 118, top: 356, width: 700, height: 46 }, { fontSize: 22, color: "#CFC9F3" });
-  } else if (item.kind === "chart") {
+  } else if (item.kind === "chart" || item.kind === "chart_text") {
     baseSlide(slide, item.title, item.section);
-    addChart(slide, item.chart);
+    if (item.kind === "chart_text") {
+      addSideParagraphs(slide, item.paragraphs ?? []);
+      addChart(slide, item.chart, { left: 480, top: 170, width: 714, height: 438 });
+    } else {
+      addChart(slide, item.chart);
+    }
     if (item.chart.kind === "range_line") addScenarioCallouts(slide, item.chart);
     if (item.chart.kind === "waterfall") addBridgeLabels(slide, item.chart);
     chartOwners.push(slideNumber);

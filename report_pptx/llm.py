@@ -5,6 +5,7 @@ import json
 import time
 import urllib.error
 import urllib.request
+import base64
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Protocol
@@ -14,6 +15,7 @@ from .config import LlmConfig
 
 class StructuredGateway(Protocol):
     def complete(self, *, task: str, instructions: str, payload: dict[str, Any], schema: dict[str, Any]) -> dict[str, Any]: ...
+    def complete_with_images(self, *, task: str, instructions: str, payload: dict[str, Any], schema: dict[str, Any], image_paths: list[Path]) -> dict[str, Any]: ...
 
 
 class UsageLimitExceeded(RuntimeError):
@@ -109,7 +111,7 @@ class BudgetedJsonGateway:
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.usage = RunUsageBudget(config)
 
-    def _complete_http(self, *, request_value: dict[str, Any], endpoint: str, headers: dict[str, str], output_parser) -> dict[str, Any]:
+    def _complete_http(self, *, request_value: dict[str, Any], endpoint: str, headers: dict[str, str], output_parser, estimated_input_tokens: int | None = None) -> dict[str, Any]:
         cache_material = {"provider": self.config.provider, "endpoint": endpoint, "request": request_value}
         cache_key = hashlib.sha256(json.dumps(cache_material, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
         cache_path = self.cache_dir / f"{cache_key}.json"
@@ -125,8 +127,8 @@ class BudgetedJsonGateway:
         )
         last_error: Exception | None = None
         for attempt in range(self.config.max_retries + 1):
-            estimated_input_tokens = max(1, (len(data) + 2) // 3)
-            reservation = self.usage.reserve(estimated_input_tokens)
+            estimated_tokens = estimated_input_tokens or max(1, (len(data) + 2) // 3)
+            reservation = self.usage.reserve(estimated_tokens)
             try:
                 with urllib.request.urlopen(request, timeout=self.config.timeout_seconds) as response:
                     raw = json.loads(response.read().decode("utf-8"))
@@ -186,6 +188,28 @@ class OpenAIResponsesGateway(BudgetedJsonGateway):
             output_parser=self._output_text,
         )
 
+    def complete_with_images(self, *, task: str, instructions: str, payload: dict[str, Any], schema: dict[str, Any], image_paths: list[Path]) -> dict[str, Any]:
+        content = [{"type": "input_text", "text": json.dumps(payload, ensure_ascii=False)}]
+        for image_path in image_paths:
+            encoded = base64.b64encode(image_path.read_bytes()).decode("ascii")
+            media_type = "image/jpeg" if image_path.suffix.lower() in {".jpg", ".jpeg"} else "image/png"
+            content.append({"type": "input_image", "image_url": f"data:{media_type};base64,{encoded}", "detail": "high"})
+        request_value = {
+            "model": self.config.planning_model,
+            "input": [
+                {"role": "system", "content": [{"type": "input_text", "text": instructions}]},
+                {"role": "user", "content": content},
+            ],
+            "text": {"format": {"type": "json_schema", "name": task, "strict": True, "schema": schema}},
+            "max_output_tokens": self.config.max_output_tokens_per_call,
+        }
+        estimated = max(1, (len(instructions) + len(json.dumps(payload))) // 3) + 2_000 * len(image_paths)
+        return self._complete_http(
+            request_value=request_value, endpoint="responses",
+            headers={"Authorization": f"Bearer {self.config.api_key}"}, output_parser=self._output_text,
+            estimated_input_tokens=estimated,
+        )
+
     @staticmethod
     def _output_text(response: dict[str, Any]) -> str:
         if isinstance(response.get("output_text"), str):
@@ -212,6 +236,27 @@ class AnthropicMessagesGateway(BudgetedJsonGateway):
             request_value=request_value, endpoint="messages",
             headers={"x-api-key": self.config.api_key, "anthropic-version": self.config.anthropic_version},
             output_parser=self._output_text,
+        )
+
+    def complete_with_images(self, *, task: str, instructions: str, payload: dict[str, Any], schema: dict[str, Any], image_paths: list[Path]) -> dict[str, Any]:
+        content = []
+        for image_path in image_paths:
+            encoded = base64.b64encode(image_path.read_bytes()).decode("ascii")
+            media_type = "image/jpeg" if image_path.suffix.lower() in {".jpg", ".jpeg"} else "image/png"
+            content.append({"type": "image", "source": {"type": "base64", "media_type": media_type, "data": encoded}})
+        content.append({"type": "text", "text": json.dumps(payload, ensure_ascii=False)})
+        request_value = {
+            "model": self.config.planning_model,
+            "max_tokens": self.config.max_output_tokens_per_call,
+            "system": instructions,
+            "messages": [{"role": "user", "content": content}],
+            "output_config": {"format": {"type": "json_schema", "schema": schema}},
+        }
+        estimated = max(1, (len(instructions) + len(json.dumps(payload))) // 3) + 2_000 * len(image_paths)
+        return self._complete_http(
+            request_value=request_value, endpoint="messages",
+            headers={"x-api-key": self.config.api_key, "anthropic-version": self.config.anthropic_version},
+            output_parser=self._output_text, estimated_input_tokens=estimated,
         )
 
     @staticmethod

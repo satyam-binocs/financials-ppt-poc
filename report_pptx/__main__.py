@@ -8,7 +8,7 @@ from .config import LlmConfig, load_env
 from .core import ReportLoader, ReportNormalizer, SemanticValidator, to_dict
 from .planning import IntelligentDeckPlanner
 from .render import ArtifactToolRenderer, FixedDeckPlanner
-from .workflow import Phase3Workflow
+from .workflow import Phase3Workflow, Phase4Workflow
 
 
 def main() -> int:
@@ -44,7 +44,14 @@ def main() -> int:
 
     if args.pptx:
         if args.planner == "llm":
-            state = Phase3Workflow(LlmConfig.from_env(), Path.cwd()).run(model)
+            config = LlmConfig.from_env()
+            if config.enable_visual_review:
+                state = Phase4Workflow(config, Path.cwd()).run(model, args.pptx_name)
+                if state["status"] not in {"completed", "completed_with_warnings"} or state["render_result"] is None:
+                    parser.error("Phase 4 workflow failed: " + "; ".join(state["diagnostics"]))
+                print(state["render_result"].pptx_path)
+                return 0
+            state = Phase3Workflow(config, Path.cwd()).run(model)
             if state["status"] != "completed" or state["deck_specification"] is None:
                 parser.error("Phase 3 planning failed: " + "; ".join(state["diagnostics"]))
             specification = state["deck_specification"]

@@ -44,6 +44,13 @@ class LlmConfig:
     input_cost_per_million_tokens: float = 2.0
     output_cost_per_million_tokens: float = 12.0
     anthropic_version: str = "2023-06-01"
+    visual_review_model: str = ""
+    enable_visual_review: bool = True
+    max_slide_repair_attempts: int = 3
+    visual_review_batch_size: int = 4
+    min_visual_aesthetic_score: int = 7
+    min_visual_readability_score: int = 8
+    min_visual_balance_score: int = 7
 
     @classmethod
     def from_env(cls) -> "LlmConfig":
@@ -71,6 +78,13 @@ class LlmConfig:
             input_cost_per_million_tokens=float(os.getenv("PLANNING_INPUT_COST_PER_1M_TOKENS", "2.00")),
             output_cost_per_million_tokens=float(os.getenv("PLANNING_OUTPUT_COST_PER_1M_TOKENS", "12.00")),
             anthropic_version=os.getenv("ANTHROPIC_VERSION", "2023-06-01"),
+            visual_review_model=os.getenv("VISUAL_REVIEW_MODEL", ""),
+            enable_visual_review=_bool("ENABLE_LLM_VISUAL_REVIEW", True),
+            max_slide_repair_attempts=int(os.getenv("MAX_SLIDE_REPAIR_ATTEMPTS", "3")),
+            visual_review_batch_size=int(os.getenv("VISUAL_REVIEW_BATCH_SIZE", "4")),
+            min_visual_aesthetic_score=int(os.getenv("MIN_VISUAL_AESTHETIC_SCORE", "7")),
+            min_visual_readability_score=int(os.getenv("MIN_VISUAL_READABILITY_SCORE", "8")),
+            min_visual_balance_score=int(os.getenv("MIN_VISUAL_BALANCE_SCORE", "7")),
         )
 
     def validate(self) -> None:
@@ -93,3 +107,8 @@ class LlmConfig:
         invalid = [name for name, value in positive.items() if value <= 0]
         if invalid:
             raise ValueError(f"LLM usage limits and pricing must be positive: {', '.join(invalid)}")
+
+    def validate_visual_review(self) -> None:
+        self.validate()
+        if self.enable_visual_review and not self.visual_review_model:
+            raise ValueError("LLM visual review is enabled but VISUAL_REVIEW_MODEL is not configured")

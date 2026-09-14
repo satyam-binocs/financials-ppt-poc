@@ -176,7 +176,7 @@ class FixedDeckPlanner:
         if any(term in label for term in ("insight", "evidence", "basis", "drivers", "equation")):
             return 4.0
         if index == 0:
-            return 1.3
+            return 1.8
         if column.inferred_type in {"currency", "percent", "number"}:
             return 1.0
         return 1.6
@@ -254,9 +254,15 @@ class ArtifactToolRenderer:
         self.runtime_root = Path("/home/skr/.cache/codex-runtimes/codex-primary-runtime/dependencies")
         self.skill_dir = Path("/home/skr/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.12148/skills/presentations")
 
-    def render(self, specification: dict[str, Any], *, name: str = "financial-overview-phase2.pptx") -> Phase2Result:
+    def render(
+        self,
+        specification: dict[str, Any],
+        *,
+        name: str = "financial-overview-phase2.pptx",
+        output_dir: Path | None = None,
+    ) -> Phase2Result:
         build_dir = self.workspace / "build" / "phase2"
-        output_dir = self.workspace / "output"
+        output_dir = (output_dir or self.workspace / "output").resolve()
         build_dir.mkdir(parents=True, exist_ok=True)
         output_dir.mkdir(parents=True, exist_ok=True)
         node_modules = build_dir / "node_modules"
@@ -270,6 +276,9 @@ class ArtifactToolRenderer:
         final_path = output_dir / name
         if final_path.exists():
             final_path.unlink()
+        receipt_path = self.workspace / ".codex-finalizer" / f"{final_path.name}.validation.json"
+        if receipt_path.exists():
+            receipt_path.unlink()
         env = os.environ.copy()
         env.update({
             "SKILL_DIR": str(self.skill_dir),
