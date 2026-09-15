@@ -298,7 +298,7 @@ class ReportNormalizer:
             if key not in {"output", "output_format", "output_format_name", "title"}
         }
 
-        if output_format in {"MarkDownSummary", "ReportRecommendation"}:
+        if output_format in {"MarkDownSummary", "ReportRecommendation", "MarkDown"}:
             kind = "recommendation" if output_format == "ReportRecommendation" else "narrative"
             paragraphs = self._parse_markdown(str(value or ""), citation_scope, pointer)
             return ContentBlock(
@@ -326,7 +326,7 @@ class ReportNormalizer:
                 extensions={**common_extensions, "source_columns": value.get("columns")},
             )
 
-        if output_format == "ReportTable" and isinstance(value, dict):
+        if output_format in {"ReportTable", "ReportTableMarkDownSummary"} and isinstance(value, dict):
             return self._table(block_id, title, source, value, citation_scope, common_extensions)
 
         if output_format == "ReportChart" and isinstance(value, dict):
@@ -373,7 +373,7 @@ class ReportNormalizer:
             row: dict[str, TableCell] = {}
             for column in columns:
                 raw_cell = raw_row.get(column.key)
-                display = "" if raw_cell is None else str(raw_cell)
+                display = "" if raw_cell is None else self._cell_text(raw_cell)
                 paragraphs = self._parse_markdown(display, citation_scope, source.json_pointer)
                 citation_ids = self._all_citations(paragraphs)
                 all_citations.update(citation_ids)
@@ -490,6 +490,18 @@ class ReportNormalizer:
             else:
                 kinds.add("text")
         return next(iter(kinds)) if len(kinds) == 1 else "mixed" if kinds else "text"
+
+    @classmethod
+    def _cell_text(cls, raw_cell: Any) -> str:
+        if isinstance(raw_cell, dict):
+            if "label" in raw_cell or "badges" in raw_cell:
+                parts = [str(raw_cell.get("label") or "")]
+                parts.extend(str(badge.get("title", "")) for badge in raw_cell.get("badges") or [] if isinstance(badge, dict))
+                if raw_cell.get("rating"):
+                    parts.append(str(raw_cell["rating"]))
+                return " · ".join(part for part in parts if part)
+            return ", ".join(f"{key}: {val}" for key, val in raw_cell.items())
+        return str(raw_cell)
 
     def _number(self, value: str) -> float | None:
         match = self.NUMBER_RE.match(value.replace("**", ""))

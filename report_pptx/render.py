@@ -29,14 +29,14 @@ class FixedDeckPlanner:
         slides.append({
             "id": "cover",
             "kind": "cover",
-            "title": (root.heading if root and root.heading_visible else None) or "Report",
+            "title": (root.heading if root else None) or "Report",
             "subtitle": "Financial analysis",
             "notes": self._notes([], model),
         })
         for section in self._sections(model.sections):
             if section is root:
                 continue
-            title = section.heading if section.heading_visible and section.heading else section.name or "Analysis"
+            title = section.heading or section.name or "Analysis"
             narrative = next((block for block in section.blocks if block.kind == "narrative" and block.paragraphs), None)
             if section.summary_headline or narrative:
                 paragraphs = []

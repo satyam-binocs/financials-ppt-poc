@@ -1,15 +1,15 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "01db3e905b48b1366fafd3ac94d176c65733721df8039873db89ec6383c74a8d",
-  "byteCount": 234023,
+  "finalSha256": "1ec14a50d218f66bf37decc3cfdf586518407c9d4f3caf18fa371927f67da5f3",
+  "byteCount": 147505,
   "packageIntegrity": {
-    "chart_count": 4,
+    "chart_count": 7,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
     "finding_count": 0,
     "findings": [],
-    "notes_parts_skipped": 66,
-    "relationship_part_count": 137,
-    "slide_count": 66,
+    "notes_parts_skipped": 43,
+    "relationship_part_count": 91,
+    "slide_count": 43,
     "status": "pass",
     "exitCode": 0,
     "findingCount": 0,
@@ -19,77 +19,34 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 752,
+      "checked_text_script_count": 357,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Calibri"
       ],
       "observed_font_use_counts": {
-        "Calibri": 752
+        "Calibri": 357
       },
       "passed": true,
       "performed": true
     },
-    "slide_count": 66,
+    "slide_count": 43,
     "slide_size_in": [
       13.3333,
       7.5
     ],
-    "warning_count": 3,
-    "warnings": [
-      {
-        "available_bottom_in": 7.0417,
-        "columns": 4,
-        "declared_bottom_in": 6.6354,
-        "estimated_native_bottom_in": 7.1013,
-        "footer_object_ids": [
-          "4"
-        ],
-        "kind": "native_table_overflow",
-        "overflow_in": 0.0596,
-        "rows": 4,
-        "slide": 8,
-        "table_id": "7"
-      },
-      {
-        "available_bottom_in": 7.0417,
-        "columns": 4,
-        "declared_bottom_in": 6.8229,
-        "estimated_native_bottom_in": 7.2179,
-        "footer_object_ids": [
-          "4"
-        ],
-        "kind": "native_table_overflow",
-        "overflow_in": 0.1762,
-        "rows": 5,
-        "slide": 15,
-        "table_id": "7"
-      },
-      {
-        "available_bottom_in": 7.0417,
-        "columns": 5,
-        "declared_bottom_in": 6.8229,
-        "estimated_native_bottom_in": 7.2179,
-        "footer_object_ids": [
-          "4"
-        ],
-        "kind": "native_table_overflow",
-        "overflow_in": 0.1762,
-        "rows": 5,
-        "slide": 46,
-        "table_id": "7"
-      }
-    ],
+    "warning_count": 0,
+    "warnings": [],
     "exitCode": 0,
     "findingCount": 0,
     "fontPolicy": {
-      "checked_text_script_count": 752,
+      "checked_text_script_count": 357,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Calibri"
       ],
       "observed_font_use_counts": {
-        "Calibri": 752
+        "Calibri": 357
       },
       "passed": true,
       "performed": true
@@ -103,13 +60,13 @@
     "scriptFonts": {},
     "referenceSha256": null,
     "referenceFontsVerifiedInEncodedText": false,
-    "checked_text_script_count": 752,
+    "checked_text_script_count": 357,
     "native_font_rendering_verified": false,
     "observed_font_families": [
       "Calibri"
     ],
     "observed_font_use_counts": {
-      "Calibri": 752
+      "Calibri": 357
     },
     "passed": true,
     "performed": true
@@ -117,8 +74,8 @@
   "firstPartyImport": {
     "performed": true,
     "passed": true,
-    "slideCount": 66,
-    "sha256": "01db3e905b48b1366fafd3ac94d176c65733721df8039873db89ec6383c74a8d",
+    "slideCount": 43,
+    "sha256": "1ec14a50d218f66bf37decc3cfdf586518407c9d4f3caf18fa371927f67da5f3",
     "runtimeNodeModules": "/home/skr/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
     "nodeExecutable": "/home/skr/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
   },
@@ -130,167 +87,47 @@
     "eligible_table_count": 0,
     "finding_count": 0,
     "findings": [],
-    "native_table_count": 31,
+    "native_table_count": 7,
     "passed": true,
     "schema_version": "presentation-native-table-arithmetic.v1",
     "skipped_tables": [
       {
-        "reason": "no_numeric_amounts",
-        "slide": 3,
+        "reason": "no_unambiguous_bottom_total",
+        "slide": 5,
         "table": 1
       },
       {
-        "reason": "no_numeric_amounts",
-        "slide": 4,
-        "table": 1
-      },
-      {
-        "reason": "insufficient_rows",
+        "reason": "no_unambiguous_bottom_total",
         "slide": 6,
         "table": 1
       },
       {
-        "reason": "no_numeric_amounts",
-        "slide": 8,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 9,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 10,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 12,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 13,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 15,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 18,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 19,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 20,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 22,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 23,
-        "table": 1
-      },
-      {
         "reason": "no_unambiguous_bottom_total",
-        "slide": 33,
+        "slide": 36,
         "table": 1
       },
       {
-        "reason": "insufficient_rows",
-        "slide": 35,
+        "reason": "no_numeric_amounts",
+        "slide": 37,
         "table": 1
       },
       {
-        "reason": "no_unambiguous_bottom_total",
+        "reason": "no_numeric_amounts",
+        "slide": 38,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 39,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
         "slide": 40,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 41,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 43,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 44,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 46,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 47,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 48,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 49,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 50,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 51,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 55,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 63,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 64,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 65,
-        "table": 1
-      },
-      {
-        "reason": "insufficient_rows",
-        "slide": 66,
         "table": 1
       }
     ],
-    "slide_count": 66,
+    "slide_count": 43,
     "warning_count": 0,
     "warnings": []
   },
@@ -299,33 +136,48 @@
     "checks": [
       {
         "chart": 1,
-        "slide": 14,
+        "slide": 8,
         "status": "absent"
       },
       {
         "chart": 1,
-        "slide": 25,
+        "slide": 15,
         "status": "absent"
       },
       {
         "chart": 1,
-        "slide": 37,
+        "slide": 18,
         "status": "absent"
       },
       {
         "chart": 1,
-        "slide": 39,
+        "slide": 21,
+        "status": "absent"
+      },
+      {
+        "chart": 1,
+        "slide": 23,
+        "status": "absent"
+      },
+      {
+        "chart": 1,
+        "slide": 29,
+        "status": "absent"
+      },
+      {
+        "chart": 1,
+        "slide": 35,
         "status": "absent"
       }
     ],
     "finding_count": 0,
     "findings": [],
-    "native_chart_count": 4,
+    "native_chart_count": 7,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "01db3e905b48b1366fafd3ac94d176c65733721df8039873db89ec6383c74a8d",
+    "presentation_sha256": "1ec14a50d218f66bf37decc3cfdf586518407c9d4f3caf18fa371927f67da5f3",
     "schema_version": "presentation-native-chart-titles.v1",
-    "slide_count": 66,
+    "slide_count": 43,
     "source_text_emitted": false,
     "unresolved_linked_title_count": 0
   },
@@ -334,82 +186,37 @@
     "12192000,6858000",
     "--validate-heading-fit",
     "--require-native-table-slide",
-    "3",
-    "--require-native-table-slide",
-    "4",
+    "5",
     "--require-native-table-slide",
     "6",
     "--require-native-table-slide",
-    "8",
+    "36",
     "--require-native-table-slide",
-    "9",
+    "37",
     "--require-native-table-slide",
-    "10",
+    "38",
     "--require-native-table-slide",
-    "12",
-    "--require-native-table-slide",
-    "13",
-    "--require-native-table-slide",
-    "15",
-    "--require-native-table-slide",
-    "18",
-    "--require-native-table-slide",
-    "19",
-    "--require-native-table-slide",
-    "20",
-    "--require-native-table-slide",
-    "22",
-    "--require-native-table-slide",
-    "23",
-    "--require-native-table-slide",
-    "33",
-    "--require-native-table-slide",
-    "35",
+    "39",
     "--require-native-table-slide",
     "40",
-    "--require-native-table-slide",
-    "41",
-    "--require-native-table-slide",
-    "43",
-    "--require-native-table-slide",
-    "44",
-    "--require-native-table-slide",
-    "46",
-    "--require-native-table-slide",
-    "47",
-    "--require-native-table-slide",
-    "48",
-    "--require-native-table-slide",
-    "49",
-    "--require-native-table-slide",
-    "50",
-    "--require-native-table-slide",
-    "51",
-    "--require-native-table-slide",
-    "55",
-    "--require-native-table-slide",
-    "63",
-    "--require-native-table-slide",
-    "64",
-    "--require-native-table-slide",
-    "65",
-    "--require-native-table-slide",
-    "66",
     "--cover-role",
     "none",
     "--expected-slide-count",
-    "66",
+    "43",
     "--approved-font-family",
     "Calibri"
   ],
   "nativeChartValidation": {
     "detectedOwnerSlides": [
-      14,
-      25,
-      37,
-      39
+      8,
+      15,
+      18,
+      21,
+      23,
+      29,
+      35
     ],
-    "detectedChartCount": 4,
+    "detectedChartCount": 7,
     "targetApplication": "powerpoint",
     "sourceChartOwnersExplicitlyDeclared": true,
     "validatorRan": true,
@@ -419,16 +226,19 @@
     "report": {
       "claim_boundary": "OOXML/workbook structural validation only; source provenance and native PowerPoint opening remain separate checks.",
       "expected_quantitative_chart_slides": [
-        14,
-        25,
-        37,
-        39
+        8,
+        15,
+        18,
+        21,
+        23,
+        29,
+        35
       ],
       "failed_slide_count": 0,
       "failed_slides": [],
       "formal_human_reviewed": false,
       "native_application_open_verified": false,
-      "package_sha256": "01db3e905b48b1366fafd3ac94d176c65733721df8039873db89ec6383c74a8d",
+      "package_sha256": "1ec14a50d218f66bf37decc3cfdf586518407c9d4f3caf18fa371927f67da5f3",
       "passed": true,
       "required_embedded_workbook_slides": [],
       "results": [
@@ -452,7 +262,53 @@
           "native_chart_count": 1,
           "raster_picture_count": 0,
           "required_native_chart_count": 1,
-          "slide_number": 14,
+          "slide_number": 8,
+          "status": "passed"
+        },
+        {
+          "approved_source_figure_exception": false,
+          "charts": [
+            {
+              "editability_evidence": "powerpoint_native_literal",
+              "embedded_workbook_count": 0,
+              "embedded_workbook_sheet_count": 0,
+              "literal_numeric_point_count": 4,
+              "native_chart_types": [
+                "barChart"
+              ],
+              "numeric_cache_point_count": 0,
+              "series_formula_count": 0,
+              "workbook_numeric_cell_count": 0
+            }
+          ],
+          "failure_codes": [],
+          "native_chart_count": 1,
+          "raster_picture_count": 0,
+          "required_native_chart_count": 1,
+          "slide_number": 15,
+          "status": "passed"
+        },
+        {
+          "approved_source_figure_exception": false,
+          "charts": [
+            {
+              "editability_evidence": "powerpoint_native_literal",
+              "embedded_workbook_count": 0,
+              "embedded_workbook_sheet_count": 0,
+              "literal_numeric_point_count": 4,
+              "native_chart_types": [
+                "barChart"
+              ],
+              "numeric_cache_point_count": 0,
+              "series_formula_count": 0,
+              "workbook_numeric_cell_count": 0
+            }
+          ],
+          "failure_codes": [],
+          "native_chart_count": 1,
+          "raster_picture_count": 0,
+          "required_native_chart_count": 1,
+          "slide_number": 18,
           "status": "passed"
         },
         {
@@ -475,7 +331,7 @@
           "native_chart_count": 1,
           "raster_picture_count": 0,
           "required_native_chart_count": 1,
-          "slide_number": 25,
+          "slide_number": 21,
           "status": "passed"
         },
         {
@@ -485,9 +341,9 @@
               "editability_evidence": "powerpoint_native_literal",
               "embedded_workbook_count": 0,
               "embedded_workbook_sheet_count": 0,
-              "literal_numeric_point_count": 4,
+              "literal_numeric_point_count": 3,
               "native_chart_types": [
-                "lineChart"
+                "barChart"
               ],
               "numeric_cache_point_count": 0,
               "series_formula_count": 0,
@@ -498,7 +354,30 @@
           "native_chart_count": 1,
           "raster_picture_count": 0,
           "required_native_chart_count": 1,
-          "slide_number": 37,
+          "slide_number": 23,
+          "status": "passed"
+        },
+        {
+          "approved_source_figure_exception": false,
+          "charts": [
+            {
+              "editability_evidence": "powerpoint_native_literal",
+              "embedded_workbook_count": 0,
+              "embedded_workbook_sheet_count": 0,
+              "literal_numeric_point_count": 16,
+              "native_chart_types": [
+                "barChart"
+              ],
+              "numeric_cache_point_count": 0,
+              "series_formula_count": 0,
+              "workbook_numeric_cell_count": 0
+            }
+          ],
+          "failure_codes": [],
+          "native_chart_count": 1,
+          "raster_picture_count": 0,
+          "required_native_chart_count": 1,
+          "slide_number": 29,
           "status": "passed"
         },
         {
@@ -521,23 +400,26 @@
           "native_chart_count": 1,
           "raster_picture_count": 0,
           "required_native_chart_count": 1,
-          "slide_number": 39,
+          "slide_number": 35,
           "status": "passed"
         }
       ],
       "schema_version": "owner-private.quantitative-chart-native-gate.v1",
-      "slide_count": 66,
+      "slide_count": 43,
       "source_attachments_accessed": false,
       "target_application": "powerpoint",
-      "validated_slide_count": 4
+      "validated_slide_count": 7
     },
     "exitCode": 0,
-    "validatedSlideCount": 4,
+    "validatedSlideCount": 7,
     "requiredOwnerSlides": [
-      14,
-      25,
-      37,
-      39
+      8,
+      15,
+      18,
+      21,
+      23,
+      29,
+      35
     ],
     "approvedSourceFigureExceptionSlides": [],
     "targetApplication": "powerpoint"

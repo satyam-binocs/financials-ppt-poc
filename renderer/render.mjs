@@ -217,9 +217,10 @@ function addBridgeLabels(slide, chart) {
 }
 
 function addChart(slide, chart, position = { left: 86, top: 158, width: 1108, height: 476 }) {
+  const sourceKind = chart.kind;
   let type = chart.kind;
   if (type === "range_line") type = "line";
-  if (type === "waterfall") type = "bar";
+  if (type === "waterfall" || type === "column") type = "bar";
   const categories = chart.categories.length
     ? chart.categories
     : [...new Set(chart.series.flatMap((series) => series.points.map((point) => point.category).filter(Boolean)))];
@@ -261,7 +262,7 @@ function addChart(slide, chart, position = { left: 86, top: 158, width: 1108, he
     config.dataLabels = { showValue: false, textStyle: { typeface: family, fontSize: 11, bold: true, fill: theme.ink } };
     config.barOptions = { direction: "column", grouping: "clustered", gapWidth: 55, varyColors: series.length === 1 };
   } else if (isBar) {
-    config.barOptions = { direction: isWaterfall ? "column" : type === "bar" ? "bar" : "column", grouping: "clustered", gapWidth: 55, varyColors: series.length === 1 };
+    config.barOptions = { direction: isWaterfall ? "column" : sourceKind === "bar" ? "bar" : "column", grouping: "clustered", gapWidth: 55, varyColors: series.length === 1 };
     config.dataLabels = { showValue: true, position: "outEnd", textStyle: { typeface: family, fontSize: 11, bold: true, fill: theme.ink } };
   } else {
     config.dataLabels = { showValue: false, textStyle: { typeface: family, fontSize: 10, fill: theme.ink } };
