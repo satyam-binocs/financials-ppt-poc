@@ -34,6 +34,10 @@ class Citation:
     url: str
     source_scope_id: str
     restricted: bool = False
+    # Deck-wide number. Local ids repeat across nodes, so `[3]` in two sections
+    # can mean two different sources; the index is what makes a single
+    # References appendix unambiguous.
+    index: int = 0
 
 
 @dataclass(slots=True)
@@ -84,7 +88,7 @@ class ChartSeries:
 
 @dataclass(slots=True)
 class ChartModel:
-    kind: Literal["bar", "column", "line", "waterfall", "range_line", "unknown"]
+    kind: Literal["bar", "column", "line", "waterfall", "range_line", "pie", "unknown"]
     title: str | None
     categories: list[str]
     series: list[ChartSeries]
@@ -95,9 +99,22 @@ class ChartModel:
 
 
 @dataclass(slots=True)
+class Card:
+    """A peer component in a card set: the one content shape that wants a grid."""
+    id: str
+    title: str | None
+    badges: list[str] = field(default_factory=list)
+    paragraphs: list[Paragraph] = field(default_factory=list)
+    citation_ids: list[str] = field(default_factory=list)
+
+
+@dataclass(slots=True)
 class ContentBlock:
     id: str
-    kind: Literal["narrative", "recommendation", "table", "chart", "evidence", "unknown"]
+    kind: Literal[
+        "narrative", "recommendation", "table", "chart", "evidence",
+        "cards", "chart_grid", "unknown",
+    ]
     title: str | None
     source: SourceRef
     citation_ids: list[str] = field(default_factory=list)
@@ -106,6 +123,8 @@ class ContentBlock:
     rows: list[dict[str, TableCell]] = field(default_factory=list)
     zebra: bool = False
     chart: ChartModel | None = None
+    cards: list[Card] = field(default_factory=list)
+    charts: list[ChartModel] = field(default_factory=list)
     extensions: dict[str, Any] = field(default_factory=dict)
 
 
@@ -158,6 +177,7 @@ class ReportLoader:
 
 
 class ReportNormalizer:
+    CHART_KIND_BY_TYPE = {"bar": "bar", "column": "column", "line": "line", "waterfall": "waterfall", "pie": "pie"}
     KNOWN_NODE_KEYS = {
         "children", "citations", "cta_to", "display_enabled", "display_properties",
         "display_text", "has_title", "id", "is_beta", "is_dynamic", "is_hidden",
@@ -172,10 +192,12 @@ class ReportNormalizer:
         self.max_depth = max_depth
         self.citations: dict[str, Citation] = {}
         self.diagnostics: list[Diagnostic] = []
+        self.citation_numbers: dict[str, int] = {}
 
     def normalize(self, raw: dict[str, Any]) -> PresentationModel:
         self.citations = {}
         self.diagnostics = []
+        self.citation_numbers = {}
         sections: list[SectionModel] = []
         for index, node in enumerate(raw["report"]):
             section = self._node(node, f"/report/{index}", index, depth=0, inherited={})
@@ -244,7 +266,9 @@ class ReportNormalizer:
             name=self._optional_str(node.get("name")),
             heading=self._optional_str(node.get("display_text")),
             heading_visible=bool(node.get("display_enabled", True)),
-            summary_headline=self._optional_str(node.get("summary_headline")),
+            summary_headline=self._optional_str(
+                self._renumber_citations(str(node.get("summary_headline") or ""), scope) or None
+            ),
             order=(self._optional_int(node.get("ordering")), self._optional_int(node.get("sub_ordering")), source_index),
             blocks=blocks,
             children=children,
@@ -267,14 +291,26 @@ class ReportNormalizer:
                 continue
             global_id = f"{node_id}:{local_id}"
             scope[str(local_id)] = global_id
+            # Keyed by URL so the same source shares one deck-wide number
+            # wherever it is cited.
+            if url not in self.citation_numbers:
+                self.citation_numbers[url] = len(self.citation_numbers) + 1
             self.citations[global_id] = Citation(
                 id=global_id,
                 local_id=str(local_id),
                 url=url,
                 source_scope_id=node_id,
                 restricted=str(local_id) in restricted,
+                index=self.citation_numbers[url],
             )
         return scope
+
+    def _renumber_citations(self, text: str, scope: dict[str, str]) -> str:
+        """Rewrite node-local `[n]` markers into their deck-wide numbers."""
+        def replace(match: re.Match[str]) -> str:
+            citation = self.citations.get(scope.get(match.group(1), ""))
+            return f"[{citation.index}]" if citation and citation.index else match.group(0)
+        return self.CITATION_RE.sub(replace, text)
 
     def _output(
         self,
@@ -333,11 +369,125 @@ class ReportNormalizer:
             chart = self._chart(value.get("options"), pointer)
             return ContentBlock(block_id, "chart", title or chart.title, source, chart=chart, extensions=common_extensions)
 
+        if output_format == "ReportColumnCards" and isinstance(value, dict):
+            cards = [
+                card
+                for column_index, column in enumerate(value.get("columns") or [])
+                if isinstance(column, dict)
+                for card in self._cards(
+                    column.get("items"), f"{pointer}/columns/{column_index}",
+                    block_id, citation_scope, offset=column_index * 100,
+                )
+            ]
+            return self._card_block(block_id, title, source, cards, common_extensions)
+
+        if output_format == "ReportAccordionCards" and isinstance(value, dict):
+            cards = self._cards(value.get("cards"), pointer, block_id, citation_scope)
+            return self._card_block(block_id, title, source, cards, common_extensions)
+
+        if output_format == "ReportChartGrid" and isinstance(value, dict):
+            charts = [
+                self._slice_chart(chart, f"{pointer}/charts/{index}")
+                for index, chart in enumerate(value.get("charts") or [])
+                if isinstance(chart, dict)
+            ]
+            charts = [chart for chart in charts if chart.series and chart.series[0].points]
+            if charts:
+                return ContentBlock(
+                    block_id, "chart_grid", title, source, charts=charts,
+                    extensions=common_extensions,
+                )
+
         self._diag("unknown_output_format", "warning", f"Unsupported output format: {output_format!r}", pointer, node_id)
         return ContentBlock(
             block_id, "unknown", title, source,
             paragraphs=self._parse_markdown(str(value or ""), citation_scope, pointer) if isinstance(value, str) else [],
             extensions={**common_extensions, "output_format": output_format, "raw": value},
+        )
+
+    def _cards(
+        self,
+        raw_cards: Any,
+        pointer: str,
+        block_id: str,
+        citation_scope: dict[str, str],
+        *,
+        offset: int = 0,
+    ) -> list[Card]:
+        """Normalize a card list; both card formats reduce to title/badges/body."""
+        if not isinstance(raw_cards, list):
+            return []
+        cards: list[Card] = []
+        for index, raw in enumerate(raw_cards):
+            if not isinstance(raw, dict):
+                continue
+            paragraphs: list[Paragraph] = []
+            for key in ("content", "description"):
+                if raw.get(key):
+                    paragraphs.extend(
+                        self._parse_markdown(str(raw[key]), citation_scope, f"{pointer}/{index}/{key}")
+                    )
+            # An accordion card carries its detail in labelled sections; the label
+            # becomes a heading so the structure survives.
+            for section_index, section in enumerate(raw.get("primary_sections") or []):
+                if not isinstance(section, dict):
+                    continue
+                label = self._optional_str(section.get("label"))
+                if label:
+                    paragraphs.append(Paragraph(label, "heading"))
+                if section.get("content"):
+                    paragraphs.extend(self._parse_markdown(
+                        str(section["content"]), citation_scope,
+                        f"{pointer}/{index}/primary_sections/{section_index}",
+                    ))
+            badges = [
+                text for badge in (raw.get("badges") or [])
+                if isinstance(badge, dict) and (text := self._optional_str(badge.get("title")))
+            ]
+            cards.append(Card(
+                id=f"{block_id}:card:{offset + index}",
+                title=self._optional_str(raw.get("title")),
+                badges=badges,
+                paragraphs=paragraphs,
+                citation_ids=self._all_citations(paragraphs),
+            ))
+        return cards
+
+    def _card_block(
+        self,
+        block_id: str,
+        title: str | None,
+        source: SourceRef,
+        cards: list[Card],
+        extensions: dict[str, Any],
+    ) -> ContentBlock:
+        if not cards:
+            self._diag("empty_card_set", "warning", "Card output contained no usable cards", source.json_pointer, source.node_id)
+            return ContentBlock(block_id, "unknown", title, source, extensions=extensions)
+        return ContentBlock(
+            block_id, "cards", title, source,
+            citation_ids=sorted({cite for card in cards for cite in card.citation_ids}),
+            cards=cards, extensions=extensions,
+        )
+
+    def _slice_chart(self, raw: dict[str, Any], pointer: str) -> ChartModel:
+        """A chart-grid entry is slice data, which is a pie by construction."""
+        points: list[DataPoint] = []
+        for raw_slice in raw.get("slices") or []:
+            if not isinstance(raw_slice, dict):
+                continue
+            points.append(DataPoint(
+                category=self._optional_str(raw_slice.get("name")),
+                value=self._float(raw_slice.get("value")),
+                color=self._optional_str(raw_slice.get("color")),
+            ))
+        return ChartModel(
+            kind="pie",
+            title=self._optional_str(raw.get("title")),
+            categories=[point.category or "" for point in points],
+            series=[ChartSeries(id="series:0", name=self._optional_str(raw.get("title")) or "Series 1", role="value", points=points)],
+            legend_enabled=True,
+            source_options={"caption": raw.get("caption") or ""},
         )
 
     def _table(
@@ -374,6 +524,7 @@ class ReportNormalizer:
             for column in columns:
                 raw_cell = raw_row.get(column.key)
                 display = "" if raw_cell is None else self._cell_text(raw_cell)
+                display = self._renumber_citations(display, citation_scope)
                 paragraphs = self._parse_markdown(display, citation_scope, source.json_pointer)
                 citation_ids = self._all_citations(paragraphs)
                 all_citations.update(citation_ids)
@@ -390,7 +541,7 @@ class ReportNormalizer:
             self._diag("invalid_chart", "error", "Chart options must be an object", pointer)
             return ChartModel("unknown", None, [], [], source_options={})
         raw_kind = str((raw_options.get("chart") or {}).get("type") or "unknown").lower()
-        kind = raw_kind if raw_kind in {"bar", "column", "line", "waterfall"} else "unknown"
+        kind = raw_kind if raw_kind in set(ReportNormalizer.CHART_KIND_BY_TYPE) else "unknown"
         categories = [str(item) for item in ((raw_options.get("xAxis") or {}).get("categories") or [])]
         series: list[ChartSeries] = []
         for series_index, raw_series in enumerate(raw_options.get("series") or []):
@@ -464,6 +615,7 @@ class ReportNormalizer:
                     citation_ids.append(global_id)
                 else:
                     self._diag("unresolved_citation", "warning", f"Citation [{local_id}] is unresolved", pointer)
+            line = self._renumber_citations(line, scope)
             paragraphs.append(Paragraph(self._plain_text(line), kind, level, list(dict.fromkeys(citation_ids))))
         return paragraphs
 
@@ -472,6 +624,9 @@ class ReportNormalizer:
         text = text.replace("\\-", "-")
         text = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
         text = re.sub(r"(?<!\*)\*([^*]+)\*", r"\1", text)
+        # Underscore emphasis shows up in card bodies (`*__Alignment__: …*`).
+        text = re.sub(r"__(.+?)__", r"\1", text)
+        text = re.sub(r"(?<![\w_])_([^_]+)_(?![\w_])", r"\1", text)
         text = re.sub(r"(?<!\\)\[(\d+)\]", r"[\1]", text)
         return text.strip()
 
@@ -581,7 +736,20 @@ class SemanticValidator:
                     self._table(block, diagnostics)
                 elif block.kind == "chart" and block.chart:
                     self._chart(block, diagnostics)
+                elif block.kind == "chart_grid":
+                    for chart in block.charts:
+                        self._chart_model(chart, block.source, diagnostics)
+                elif block.kind == "cards":
+                    self._cards(block, seen, diagnostics)
         return ValidationReport(diagnostics)
+
+    def _cards(self, block: ContentBlock, seen: set[str], diagnostics: list[Diagnostic]) -> None:
+        if not block.cards:
+            diagnostics.append(Diagnostic("empty_card_set", "error", "Card block has no cards", block.source))
+        for card in block.cards:
+            self._unique(card.id, block.source, seen, diagnostics)
+            if not card.title and not card.paragraphs:
+                diagnostics.append(Diagnostic("empty_card", "warning", f"Card {card.id} has no title or body", block.source))
 
     def _sections(self, sections: list[SectionModel]):
         for section in sections:
@@ -606,22 +774,25 @@ class SemanticValidator:
     def _chart(self, block: ContentBlock, diagnostics: list[Diagnostic]) -> None:
         chart = block.chart
         assert chart is not None
+        self._chart_model(chart, block.source, diagnostics)
+        if chart.kind == "waterfall":
+            self._waterfall(block, diagnostics)
+
+    def _chart_model(self, chart: ChartModel, source: SourceRef, diagnostics: list[Diagnostic]) -> None:
         if chart.kind == "unknown":
-            diagnostics.append(Diagnostic("unknown_chart_type", "error", "Chart type is unsupported", block.source))
+            diagnostics.append(Diagnostic("unknown_chart_type", "error", "Chart type is unsupported", source))
         for series in chart.series:
             if chart.categories and len(series.points) != len(chart.categories):
                 diagnostics.append(Diagnostic(
                     "chart_length_mismatch", "error",
                     f"Series {series.name!r} has {len(series.points)} points for {len(chart.categories)} categories",
-                    block.source,
+                    source,
                 ))
             for point in series.points:
                 if point.low is not None and point.high is not None and point.low > point.high:
-                    diagnostics.append(Diagnostic("invalid_range", "error", "Chart range low exceeds high", block.source))
+                    diagnostics.append(Diagnostic("invalid_range", "error", "Chart range low exceeds high", source))
                 if point.color and not self.HEX_COLOR.match(point.color):
-                    diagnostics.append(Diagnostic("invalid_color", "warning", f"Invalid point color {point.color!r}", block.source))
-        if chart.kind == "waterfall":
-            self._waterfall(block, diagnostics)
+                    diagnostics.append(Diagnostic("invalid_color", "warning", f"Invalid point color {point.color!r}", source))
 
     @staticmethod
     def _waterfall(block: ContentBlock, diagnostics: list[Diagnostic]) -> None:

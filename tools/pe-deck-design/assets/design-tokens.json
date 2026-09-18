@@ -1,0 +1,632 @@
+{
+  "$schema": "pe-deck-design/1.0",
+  "provenance": {
+    "DOC": "value stated verbatim in the source specification",
+    "DERIVED": "computed from a DOC rule, or a geometry constant the DOC implies but does not number",
+    "note": "Never edit a DOC value silently. Changing one is a spec change, not a styling choice."
+  },
+
+  "canvas": {
+    "layout": "LAYOUT_WIDE",
+    "width_in": 13.333,
+    "height_in": 7.5,
+    "provenance": "DERIVED",
+    "why": "All DOC point sizes (8-16pt) assume a 13.33in canvas. On pptxgenjs's default 10in canvas the same pt values render ~33% larger relative to the slide and the whole scale breaks."
+  },
+
+  "grid": {
+    "margin_top_in": 0.42,
+    "margin_bottom_in": 0.40,
+    "margin_left_in": 0.50,
+    "margin_right_in": 0.50,
+    "columns": 12,
+    "gutter_in": 0.16,
+    "column_width_in": 0.9777,
+    "title_band_h_in": 0.55,
+    "footer_band_h_in": 0.28,
+    "content_top_in": 1.05,
+    "content_bottom_in": 6.95,
+    "content_width_in": 12.333,
+    "content_height_in": 5.90,
+    "provenance": "DERIVED",
+    "why": "DOC requires 'align tables to the slide's main content grid' and 'consistent left/right margins across slides' but does not number the grid. These constants are that grid."
+  },
+
+  "type": {
+    "fonts": {
+      "header": "Manrope",
+      "body": "Arial",
+      "header_fallback": "Calibri",
+      "provenance": "DOC",
+      "qa_warning": "Manrope is not metric-compatible with anything LibreOffice substitutes. Header fit in local PDF/image QA is APPROXIMATE. Size header containers with ~10% horizontal slack and never trust a borderline header overflow read from the preview."
+    },
+    "min_pt": 8,
+    "max_pt": 16,
+    "footnote_floor_pt": 7,
+    "footnote_floor_note": "DOC sets a global 8pt minimum AND separately sets source/footnote at 7-8pt. Resolution: 8pt is the floor for CONTENT; 7pt is permitted only for source/footnote/citation metadata. This is the single reconciliation in the token set.",
+
+    "scales": {
+      "sparse": {
+        "title": 16, "header": 14, "body": 10, "key_insight": 10,
+        "table_header": 10, "table_body": 9, "table_metric": 10, "table_title": 14,
+        "chart_label": 9, "footnote": 8, "citation": 9
+      },
+      "balanced": {
+        "title": 15, "header": 13, "body": 10, "key_insight": 10,
+        "table_header": 10, "table_body": 9, "table_metric": 10, "table_title": 13,
+        "chart_label": 9, "footnote": 8, "citation": 9
+      },
+      "dense": {
+        "title": 14, "header": 12, "body": 9, "key_insight": 9,
+        "table_header": 9, "table_body": 8, "table_metric": 9, "table_title": 12,
+        "chart_label": 8, "footnote": 7, "citation": 8
+      }
+    },
+    "scale_note": "DOC: 'The relative hierarchy between title, header, body, chart labels, and footnotes should remain consistent; only the overall scale changes.' Each role therefore moves within its own DOC-defined range; roles never cross.",
+
+    "role_ranges_doc": {
+      "title": [14, 16, "Bold"],
+      "header": [12, 14, "Medium"],
+      "body": [9, 10, "Regular"],
+      "key_insight": [9, 10, "Regular"],
+      "table_title": [12, 14, "Semibold"],
+      "table_header": [9, 10, "Semibold"],
+      "table_body": [8, 9, "Regular"],
+      "table_metric": [9, 10, "Semibold"],
+      "chart_label": [8, 9, "Regular"],
+      "footnote": [7, 8, "Regular"],
+      "citation": [8, 9, "Regular"],
+      "provenance": "DOC"
+    },
+
+    "line_spacing_multiple": {
+      "body_min": 1.10,
+      "body_max": 1.25,
+      "header_min": 0.95,
+      "header_max": 1.10,
+      "citation_min": 1.10,
+      "citation_max": 1.20,
+      "provenance": "DOC"
+    },
+    "paragraph_space_after_pt": 3,
+    "section_space_after_pt": 8,
+    "provenance_spacing": "DOC",
+
+    "case": {
+      "title": "sentence",
+      "header": "sentence",
+      "body": "sentence",
+      "citation": "sentence",
+      "allcaps_allowed_for": ["short label", "tag", "metadata", "eyebrow"],
+      "allcaps_max_chars": 18,
+      "title_case_banned": true,
+      "provenance": "DOC"
+    },
+
+    "distortion": {
+      "horizontal_scale_allowed": false,
+      "vertical_scale_allowed": false,
+      "autofit_font_scale_allowed": false,
+      "provenance": "DOC",
+      "why": "DOC: 'Do not stretch, compress, or scale the font.' PowerPoint's normAutofit fontScale is exactly this distortion applied automatically, so autofit shrink is banned; fix fit by layout, not by squeezing glyphs."
+    }
+  },
+
+  "density": {
+    "unit": "characters of visible copy, citations excluded",
+    "target_min": 600,
+    "target_max": 900,
+    "soft_max": 1000,
+    "hard_max": 1200,
+    "provenance": "DOC",
+    "bands": [
+      { "name": "sparse",     "max": 550,  "action": "Scale up. Increase whitespace. Consider pulling related content forward from the next slide." },
+      { "name": "balanced",   "max": 900,  "action": "Preferred. Ship it." },
+      { "name": "dense",      "max": 1000, "action": "Optimize if possible: condense copy before changing layout." },
+      { "name": "dense",      "max": 1200, "action": "Strong overflow check. Reflow, consolidate, shorten, deprioritise." },
+      { "name": "overflow",   "max": null, "action": "Recompose or split at a logical content boundary. Never shrink type to fit." }
+    ]
+  },
+
+  "components": {
+    "card": {
+      "border_pt": 1,
+      "border_role": "neutral",
+      "fill": "none",
+      "provenance": "DOC",
+      "counts": {
+        "1-3": "Larger cards, stronger typography, more internal whitespace.",
+        "4-6": "Reduce card width and spacing; keep content readable.",
+        "7+": "Do not keep shrinking. Switch to a rail or grouped structure."
+      },
+      "radius_in": 0.06,
+      "pad_x_in": 0.16,
+      "pad_y_in": 0.12,
+      "gap_in": 0.18,
+      "equal_height_within_row": true,
+      "equal_width_required": false,
+      "one_message_per_card": true
+    },
+    "rail": {
+      "border_pt": 1,
+      "fill": "gradient of the border colour",
+      "provenance": "DOC",
+      "counts": {
+        "2-4": "Larger item widths, generous spacing.",
+        "5-6": "Compact spacing, smaller item widths.",
+        "7+": "Split the rail or change the component. Never drop below min type."
+      },
+      "radius_in": 0.06,
+      "pad_x_in": 0.16,
+      "pad_y_in": 0.12,
+      "gap_in": 0.14,
+      "width_follows_content": true,
+      "preserve_order": true
+    },
+    "callout": {
+      "border_pt": 0,
+      "fill": "gradient of the primary colour",
+      "provenance": "DOC",
+      "counts": {
+        "1": "Stronger visual emphasis, more whitespace.",
+        "2": "Balance by content length; identical heights not required.",
+        "3+": "Only when each is a distinct insight; otherwise combine."
+      },
+      "radius_in": 0.06,
+      "pad_x_in": 0.18,
+      "pad_y_in": 0.14,
+      "gap_in": 0.18,
+      "equal_height_required": false
+    },
+    "gradient": {
+      "tint_start_pct": 10,
+      "tint_end_pct": 2,
+      "angle_deg": 135,
+      "provenance": "DERIVED",
+      "why": "DOC specifies gradient fills. pptxgenjs cannot emit a gradient fill, so gradients ship as an alpha PNG generated at build time (scripts/pe_components.js). Tint percentages keep the fill subordinate to the text above it."
+    }
+  },
+
+  "table": {
+    "cell_pad_x_pt": [6, 8],
+    "cell_pad_y_pt": [4, 6],
+    "provenance": "DOC",
+    "borders": "Subtle horizontal dividers only. No heavy gridlines. No box around every cell.",
+    "row_height": "Minimum required for content; no excess whitespace.",
+    "max_wrap_lines": 2,
+    "preferred_wrap_lines": 1,
+    "numeric_align": "right",
+    "text_align": "left",
+    "header_align": "match column",
+    "zebra": {
+      "allowed_when": "Dense data-only table with no tags, pills, labels or highlighted rows, where striping genuinely improves row scanning.",
+      "banned_when": "Rows contain labels, tags, pills or other visual indicators; or the table already uses highlighted rows or coloured tags.",
+      "provenance": "DOC"
+    },
+    "overflow_order": [
+      "column widths",
+      "cell padding",
+      "wrapping",
+      "overall table size",
+      "typography (only within the allowed range, and last)"
+    ],
+    "provenance_overflow": "DOC",
+    "column_width_policy": "Wider for descriptive text, narrower for numbers, percentages, dates and short labels. No unnecessarily wide empty columns. Primary column visually dominant.",
+    "emphasis": "Bold only key values, totals or key rows. One consistent treatment for highlighted cells. One accent colour maximum."
+  },
+
+  "citation": {
+    "style": "numbered",
+    "single": "[3]",
+    "multiple_non_consecutive": "[3, 7]",
+    "consecutive_range": "[3-7]",
+    "placement": "immediately after the claim, metric, statement, chart or data point it supports",
+    "size_pt": [8, 9],
+    "weight": "Regular",
+    "colour_role": "muted",
+    "line_spacing": [1.1, 1.2],
+    "case": "sentence",
+    "banned": ["bold", "uppercase", "coloured badges", "filled pills", "borders", "separate citation cards", "full source names inside components", "URLs inside components", "publication titles inside components"],
+    "chart_form": "Source [3, 5]  — small line at the bottom of the visual",
+    "table_form": "One table-level citation when the same sources support the table. Cell-level only when individual values come from different sources.",
+    "grouping_threshold": 3,
+    "appendix_threshold": 6,
+    "global_index": true,
+    "full_source_format": "[3] Gartner, Semiconductor Forecast, 2025",
+    "layout_impact": "none — citations must never change component layout, shrink main content, or increase component height",
+    "excluded_from_char_budget": true,
+    "provenance": "DOC"
+  },
+
+  "palettes": {
+    "provenance": "DERIVED",
+    "why": "DOC names colour ROLES (neutral border, primary gradient, one accent, muted citation) but no hex values. These palettes bind the roles. Swap the hexes, keep the roles.",
+    "default": "graphite_navy",
+    "graphite_navy": {
+      "primary": "1F3864",
+      "accent": "C8102E",
+      "ink": "1A1A1A",
+      "body": "333333",
+      "muted": "6E7278",
+      "neutral_line": "D2D5DA",
+      "neutral_fill": "F4F5F7",
+      "surface": "FFFFFF",
+      "positive": "1F7A54",
+      "negative": "B3261E"
+    },
+    "slate_teal": {
+      "primary": "12414A",
+      "accent": "C2703B",
+      "ink": "13191C",
+      "body": "323A3D",
+      "muted": "6B7578",
+      "neutral_line": "D3D8D9",
+      "neutral_fill": "F3F6F6",
+      "surface": "FFFFFF",
+      "positive": "1F7A54",
+      "negative": "B3261E"
+    },
+    "ink_oxblood": {
+      "primary": "23262B",
+      "accent": "7A1F2B",
+      "ink": "111316",
+      "body": "31353B",
+      "muted": "70757C",
+      "neutral_line": "D6D8DC",
+      "neutral_fill": "F5F5F7",
+      "surface": "FFFFFF",
+      "positive": "1F7A54",
+      "negative": "B3261E"
+    }
+  },
+
+  "layout": {
+    "provenance": "DERIVED",
+    "why": "DOC says 'use any layout/component combination, no fixed template' and 'content volume determines component size, spacing and structure', but numbers no geometry. This section is that geometry, plus the composition grammar the DOC implies. No DOC value is changed here.",
+
+    "frame": {
+      "region_gap_x_in": 0.24,
+      "region_gap_y_in": 0.22,
+      "region_gap_min_in": 0.16,
+      "region_gap_max_in": 0.34,
+      "band_gap_in": 0.20,
+      "why": "Column gutters between REGIONS are wider than the gaps between stacked components inside one region (GAP_MIN 0.12 / GAP_NATURAL 0.20), because a vertical seam must read as a structural division, not a paragraph break."
+    },
+
+    "readability": {
+      "advance_em_body": 0.50,
+      "advance_em_header": 0.60,
+      "min_chars_per_line": {
+        "body": 32,
+        "bullets": 30,
+        "card_body": 24,
+        "callout_label": 16,
+        "rail_body": 20,
+        "table_cell": 14,
+        "annotation": 20,
+        "chart_label": 8
+      },
+      "why": "Minimum component widths are DERIVED, not invented: min_w = min_chars_per_line x fontPt/72 x advance_em + 2 x padding. At 10pt body, advance is 0.0694in/char, so 32 characters needs 2.22in of text plus padding. Below that a column stops being prose and becomes a word ladder.",
+      "max_chars_per_line": 110,
+      "max_chars_per_line_note": "Past ~110 characters the eye loses the line return. A full-width 12.333in body paragraph at 9pt is ~197 chars/line, which is why running prose should be split into regions or bullets rather than set full-bleed."
+    },
+
+    "min_dims_in": {
+      "body":        { "w": 2.40, "h": 0.42 },
+      "bullets":     { "w": 2.60, "h": 0.46 },
+      "header":      { "w": 1.60, "h": 0.22 },
+      "cards_short": { "w": 2.20, "h": 0.78 },
+      "cards":       { "w": 2.90, "h": 1.05 },
+      "rail":        { "w": 1.60, "h": 0.70 },
+      "callouts":    { "w": 1.90, "h": 0.78 },
+      "kpi":         { "w": 1.90, "h": 0.78 },
+      "table":       { "w": 4.20, "h": 0.90 },
+      "chart":       { "w": 3.60, "h": 2.30 },
+      "timeline":    { "w": 5.00, "h": 1.10 },
+      "matrix":      { "w": 4.20, "h": 3.30 },
+      "annotation":  { "w": 1.80, "h": 0.42 },
+      "footnote":    { "w": 1.80, "h": 0.18 },
+      "table_col_w": 0.62,
+      "why": "A layout is INVALID if any region falls below these. The engine must change layout, not shrink type, when a region cannot hold its component."
+    },
+
+    "aspect": {
+      "chart":  { "min": 0.90, "max": 2.60, "ideal": 1.55 },
+      "matrix": { "min": 0.85, "max": 1.45, "ideal": 1.05 },
+      "why": "w/h. A chart squeezed below 0.9 turns its legend into the subject; past 2.6 the series flatten and the trend disappears. A matrix must stay near square or its quadrants stop reading as quadrants."
+    },
+
+    "roles": {
+      "enum": ["primary", "secondary", "supporting", "comparison", "evidence", "annotation", "summary", "context", "metadata"],
+      "weight": {
+        "primary": 1.00, "summary": 0.85, "comparison": 0.80, "secondary": 0.62,
+        "evidence": 0.55, "supporting": 0.45, "context": 0.35, "annotation": 0.25, "metadata": 0.10
+      },
+      "slide_contract": [
+        "exactly one dominant message (the title)",
+        "exactly one primary content or visual anchor",
+        "at most one secondary support layer",
+        "optional annotation / metadata layer"
+      ],
+      "dominance_min_area_share": 0.40,
+      "dominance_min_ratio_vs_secondary": 1.25,
+      "why": "DOC: 'keep the primary message visually dominant' and 'prioritize information, not component count'. Two components at identical size with unequal importance is a hierarchy failure, not a symmetry win."
+    },
+
+    "density_model": {
+      "unit": "complexity points, additive, evaluated ALONGSIDE the DOC character budget, never instead of it",
+      "weights": {
+        "per_component": 3,
+        "per_text_heavy_component": 4,
+        "per_region_column": 2,
+        "per_table_row": 1.0,
+        "per_table_column": 1.5,
+        "per_chart_series": 1.5,
+        "per_chart_category": 0.5,
+        "per_nesting_level": 4,
+        "per_distinct_source": 0.4
+      },
+      "bands": [
+        { "name": "light",    "max": 22 },
+        { "name": "workable", "max": 40 },
+        { "name": "heavy",    "max": 56 },
+        { "name": "overload", "max": null }
+      ],
+      "axes_note": "Vertical occupancy and content complexity are DIFFERENT axes and both must be evaluated. A 700-char slide of one chart is light; a 700-char slide of six cards, a 9-row table and two charts is overload. Character count alone never selects a layout.",
+      "text_heavy_threshold_chars": 140
+    },
+
+    "scoring": {
+      "weights": {
+        "hierarchy_fit": 1.30,
+        "readability": 1.50,
+        "semantic_fit": 1.30,
+        "compatibility": 1.00,
+        "balance": 0.80,
+        "alignment": 0.50,
+        "source_fidelity": 1.00
+      },
+      "penalties": {
+        "overflow": 30.0,
+        "density": 1.00,
+        "tiny_component": 18.0,
+        "competition": 9.0,
+        "whitespace": 0.90,
+        "nesting": 5.0
+      },
+      "criteria_scale": [0, 10],
+      "why": "The selected layout must be the best VALID composition, not the first valid one. Scores are comparable only within one slide."
+    },
+
+    "balance": {
+      "target_fill_min": 0.62,
+      "target_fill_max": 0.94,
+      "max_side_imbalance": 0.28,
+      "max_deadzone_share": 0.22,
+      "max_area_variance_peer": 0.35,
+      "why": "fill = occupied content-band area / total content-band area. Side imbalance is |left ink - right ink| / total ink and is only a defect when the two sides are PEER regions; an intentional 62/38 main+sidebar is not imbalance. A deadzone is a contiguous empty strip in the lower content band while the slide is at or above target characters."
+    },
+
+    "fallback_order": [
+      "reflow within the same layout (re-wrap, redistribute, tighten gaps to region_gap_min)",
+      "change layout to the next in the fallback chain",
+      "consolidate related components into one region",
+      "reduce non-essential spacing",
+      "shorten redundant copy",
+      "deprioritise optional content (move annotation/context out)",
+      "split semantically at a sub-topic boundary"
+    ],
+    "fallback_note": "DOC escalation order, extended one step: reflow -> CHANGE LAYOUT -> consolidate -> shorten -> deprioritise -> split. Shrinking type is not in the list at any position.",
+
+    "catalog": {
+      "L01_SINGLE": {
+        "use": "One dominant component owns the slide: a single chart, one wide table, one matrix, one full-width narrative.",
+        "components": [1, 1],
+        "accepts": ["chart", "table", "matrix", "timeline", "body", "bullets", "cards", "rail", "callouts"],
+        "proportions": [[1.0]],
+        "density": ["light", "workable", "heavy"],
+        "avoid_when": "Two or more components of comparable importance exist; a single component would leave the lower half dead.",
+        "fallbacks": ["L14_TABLE_INSIGHT", "L13_CHART_COMMENTARY", "L20_PAGINATED"],
+        "validation": ["region >= min_dims for the component", "fill >= target_fill_min or the component is growable"]
+      },
+      "L02_SPLIT_EQUAL": {
+        "use": "Two peer components of equal importance and comparable reading scale — two charts, two card sets, before/after.",
+        "components": [2, 2],
+        "accepts": ["chart", "cards", "callouts", "body", "bullets", "table", "rail"],
+        "proportions": [[0.50, 0.50]],
+        "density": ["light", "workable"],
+        "avoid_when": "One side is materially more important (use L03/L04); either side is a detailed table; either side would fall below min width.",
+        "fallbacks": ["L03_SPLIT_LEFT_DOMINANT", "L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["both regions >= min_dims", "roles are peers", "no detailed table in a half-width region unless <= 4 columns"]
+      },
+      "L03_SPLIT_LEFT_DOMINANT": {
+        "use": "Primary visual or argument on the left, subordinate support on the right. The default asymmetric split.",
+        "components": [2, 2],
+        "accepts": ["chart", "table", "matrix", "cards", "body", "bullets", "callouts", "timeline"],
+        "proportions": [[0.62, 0.38]],
+        "density": ["light", "workable", "heavy"],
+        "avoid_when": "Both components are equally important; the right-hand content is longer than the left.",
+        "fallbacks": ["L11_MAIN_SIDEBAR", "L02_SPLIT_EQUAL", "L10_VERTICAL_STACK"],
+        "validation": ["right region >= min_dims of its component", "primary holds dominance_min_ratio_vs_secondary"]
+      },
+      "L04_SPLIT_RIGHT_DOMINANT": {
+        "use": "Mirror of L03 when reading order should hit the setup first and the evidence second, or when the source exhibit sits right.",
+        "components": [2, 2],
+        "accepts": ["chart", "table", "matrix", "cards", "body", "bullets", "callouts"],
+        "proportions": [[0.38, 0.62]],
+        "density": ["light", "workable", "heavy"],
+        "avoid_when": "No reason to invert normal left-to-right primacy; source fidelity does not call for it.",
+        "fallbacks": ["L03_SPLIT_LEFT_DOMINANT", "L10_VERTICAL_STACK"],
+        "validation": ["left region >= min_dims", "primary holds dominance"]
+      },
+      "L05_THREE_COLUMN": {
+        "use": "Three compact peers: three metrics, three short cards, a three-way comparison with short cells.",
+        "components": [3, 3],
+        "accepts": ["cards", "callouts", "body", "chart", "rail"],
+        "proportions": [[0.3333, 0.3333, 0.3333]],
+        "density": ["light", "workable"],
+        "avoid_when": "Any column carries more than ~220 characters, or content is detailed enough to need reading width.",
+        "fallbacks": ["L12_MAIN_TWO_SUPPORT", "L07_GRID_2X2", "L10_VERTICAL_STACK"],
+        "validation": ["every column >= min_dims", "longest column text <= 220 chars"]
+      },
+      "L06_FOUR_COLUMN": {
+        "use": "Four compact KPIs or four one-line cards across the band.",
+        "components": [4, 4],
+        "accepts": ["callouts", "kpi", "cards", "rail"],
+        "proportions": [[0.25, 0.25, 0.25, 0.25]],
+        "density": ["light"],
+        "avoid_when": "Any item exceeds ~120 characters, or items carry titles AND bodies AND citations.",
+        "fallbacks": ["L07_GRID_2X2", "L05_THREE_COLUMN", "L10_VERTICAL_STACK"],
+        "validation": ["every column >= min_dims", "longest item <= 120 chars"]
+      },
+      "L07_GRID_2X2": {
+        "use": "Four detailed peers that each need reading width — four insight cards, four workstreams.",
+        "components": [4, 4],
+        "grid": { "rows": 2, "cols": 2 },
+        "accepts": ["cards", "callouts", "chart", "body"],
+        "proportions": [[0.50, 0.50], [0.50, 0.50]],
+        "density": ["workable", "heavy"],
+        "avoid_when": "Items are one-liners (wastes the width — use L06); items are unequal in importance.",
+        "fallbacks": ["L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["every cell >= cards min_dims", "row heights equalise within the row"]
+      },
+      "L08_GRID_2X3": {
+        "use": "Six SHORT cards: 2 rows x 3 columns. Labels and one-line bodies only.",
+        "components": [6, 6],
+        "grid": { "rows": 2, "cols": 3 },
+        "accepts": ["cards", "callouts", "rail"],
+        "proportions": [[0.3333, 0.3333, 0.3333], [0.3333, 0.3333, 0.3333]],
+        "density": ["workable"],
+        "avoid_when": "Any card exceeds ~110 characters; the six items are a sequence (use a rail or timeline).",
+        "fallbacks": ["L09_GRID_3X2", "L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["every cell >= cards_short min_dims", "longest card <= 110 chars"]
+      },
+      "L09_GRID_3X2": {
+        "use": "Six DETAILED cards: 3 rows x 2 columns. Wider columns buy reading width at the cost of vertical room.",
+        "components": [6, 6],
+        "grid": { "rows": 3, "cols": 2 },
+        "accepts": ["cards", "callouts"],
+        "proportions": [[0.50, 0.50], [0.50, 0.50], [0.50, 0.50]],
+        "density": ["heavy"],
+        "avoid_when": "Total character load is above the DOC soft maximum — six detailed cards usually means two slides.",
+        "fallbacks": ["L20_PAGINATED", "L10_VERTICAL_STACK"],
+        "validation": ["every cell >= cards min_dims", "three rows fit the content band at natural height"]
+      },
+      "L10_VERTICAL_STACK": {
+        "use": "The default full-width flow: header, body, table, rail. The existing two-phase stack.",
+        "components": [1, 6],
+        "accepts": ["header", "body", "bullets", "cards", "rail", "callouts", "table", "chart", "timeline", "footnote"],
+        "proportions": [[1.0]],
+        "density": ["light", "workable", "heavy"],
+        "avoid_when": "Two components are peers that invite comparison — side-by-side reads the comparison, stacking hides it.",
+        "fallbacks": ["L20_PAGINATED"],
+        "validation": ["sum of natural heights + gaps <= content height at minimum gap"]
+      },
+      "L11_MAIN_SIDEBAR": {
+        "use": "A dominant exhibit with a persistent narrow commentary rail — the classic so-what rail.",
+        "components": [2, 2],
+        "accepts": ["chart", "table", "matrix", "timeline", "cards", "body", "bullets", "callouts"],
+        "proportions": [[0.70, 0.30]],
+        "density": ["workable", "heavy"],
+        "avoid_when": "The sidebar would carry a detailed table, a chart, or more than ~320 characters.",
+        "fallbacks": ["L03_SPLIT_LEFT_DOMINANT", "L10_VERTICAL_STACK"],
+        "validation": ["sidebar >= annotation min_dims", "sidebar carries no table and no chart", "sidebar <= 320 chars"]
+      },
+      "L12_MAIN_TWO_SUPPORT": {
+        "use": "One main visual plus two short supporting blocks stacked beside it.",
+        "components": [3, 3],
+        "accepts": ["chart", "table", "matrix", "timeline", "callouts", "body", "cards"],
+        "proportions": [[0.62, 0.38]],
+        "sub_stack": { "column": 1, "rows": 2 },
+        "density": ["workable", "heavy"],
+        "avoid_when": "The two supports are longer than the main component; the supports are peers of the main.",
+        "fallbacks": ["L03_SPLIT_LEFT_DOMINANT", "L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["each support >= min_dims", "each support <= 200 chars", "main holds dominance"]
+      },
+      "L13_CHART_COMMENTARY": {
+        "use": "A chart with its reading — the single most common consulting exhibit page.",
+        "components": [2, 2],
+        "accepts": ["chart", "body", "bullets", "callouts", "cards"],
+        "proportions": [[0.60, 0.40]],
+        "density": ["light", "workable", "heavy"],
+        "avoid_when": "Commentary exceeds ~420 characters (stack it instead); the chart has more than 6 series or a legend wider than the plot.",
+        "fallbacks": ["L11_MAIN_SIDEBAR", "L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["chart region within aspect band", "chart >= chart min_dims", "commentary >= body min_dims"]
+      },
+      "L14_TABLE_INSIGHT": {
+        "use": "A full-width table with a concise takeaway above or below it.",
+        "components": [2, 2],
+        "accepts": ["table", "callouts", "body", "bullets"],
+        "proportions": [[1.0], [1.0]],
+        "band_split": [0.72, 0.28],
+        "density": ["workable", "heavy"],
+        "avoid_when": "The takeaway is longer than three lines — it is then a body block in a stack, not an insight strip.",
+        "fallbacks": ["L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["table full width", "insight <= 260 chars", "every table column >= table_col_w"]
+      },
+      "L15_KPI_CHART": {
+        "use": "A KPI strip across the top, the chart that explains it beneath.",
+        "components": [2, 2],
+        "accepts": ["callouts", "kpi", "chart", "table"],
+        "proportions": [[1.0], [1.0]],
+        "band_split": [0.26, 0.74],
+        "density": ["light", "workable"],
+        "avoid_when": "More than 4 KPIs (they become a list, not a set of insights — DOC callout rule); the chart would drop below its min height.",
+        "fallbacks": ["L13_CHART_COMMENTARY", "L10_VERTICAL_STACK"],
+        "validation": ["kpi count <= 4", "chart region >= chart min_dims and within aspect band"]
+      },
+      "L16_TIMELINE": {
+        "use": "A sequence with dates or stages. Horizontal when events are few and labels short; vertical when entries carry prose.",
+        "components": [1, 2],
+        "accepts": ["timeline", "body", "callouts", "cards"],
+        "proportions": [[1.0]],
+        "orientation_rule": "horizontal if events <= 6 AND max event text <= 90 chars; else vertical; else paginate",
+        "density": ["light", "workable"],
+        "avoid_when": "Chronology is not the point of the slide; more than 8 events.",
+        "fallbacks": ["L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["per-event width >= timeline min item width", "chronological order preserved"]
+      },
+      "L17_MATRIX": {
+        "use": "A 2x2 or positioning matrix as the primary visual, with short side annotations.",
+        "components": [1, 2],
+        "accepts": ["matrix", "body", "bullets", "callouts"],
+        "proportions": [[0.66, 0.34]],
+        "density": ["light", "workable"],
+        "avoid_when": "Quadrants would carry paragraphs; a detailed table accompanies it (separate the two).",
+        "fallbacks": ["L01_SINGLE", "L10_VERTICAL_STACK"],
+        "validation": ["matrix within aspect band", "axis labels legible at chart_label size", "quadrant text <= 90 chars each"]
+      },
+      "L18_COMPARISON": {
+        "use": "Structured N-way comparison across a consistent set of dimensions.",
+        "components": [2, 4],
+        "accepts": ["table", "cards", "callouts", "chart"],
+        "proportions": [[0.50, 0.50], [0.3333, 0.3333, 0.3333], [0.25, 0.25, 0.25, 0.25]],
+        "density": ["workable", "heavy"],
+        "avoid_when": "Cells carry more than ~150 characters with 3+ options — use a table instead of columns.",
+        "fallbacks": ["L14_TABLE_INSIGHT", "L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["identical dimension set across every option", "column >= min_dims", "consistent internal ordering"]
+      },
+      "L19_HIERARCHICAL": {
+        "use": "A thesis stated once across the top, with the evidence that supports it beneath.",
+        "components": [2, 5],
+        "accepts": ["callouts", "body", "cards", "chart", "table", "rail"],
+        "proportions": [[1.0]],
+        "band_split": [0.30, 0.70],
+        "density": ["workable", "heavy"],
+        "avoid_when": "The top block is not actually a thesis — a header is not a thesis.",
+        "fallbacks": ["L10_VERTICAL_STACK", "L20_PAGINATED"],
+        "validation": ["thesis <= 260 chars", "support row items >= min_dims", "thesis carries the strongest visual weight"]
+      },
+      "L20_PAGINATED": {
+        "use": "Terminal fallback: the content is a coherent whole that does not fit one slide at minimum readable geometry.",
+        "components": [1, 99],
+        "accepts": ["*"],
+        "proportions": [[1.0]],
+        "density": ["overload"],
+        "avoid_when": "A layout change would have solved it — pagination is the last step of the escalation order, never the first.",
+        "fallbacks": [],
+        "validation": ["split at a sub-topic boundary", "no continuation slide holds a single orphaned component", "continuation title carries '(cont.)' or restates the sub-topic"]
+      }
+    }
+  }
+}
