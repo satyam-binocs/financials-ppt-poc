@@ -1,15 +1,15 @@
 {
   "schemaVersion": "presentation-finalization.v1",
-  "finalSha256": "299a3100390be836160fa859c558d8056555a8604be14e547770cb67d1976d28",
-  "byteCount": 165825,
+  "finalSha256": "3712f333d8f8a727489a7f6f4bc09cbaca77ebf375c927ee81accda7159d33f3",
+  "byteCount": 179376,
   "packageIntegrity": {
-    "chart_count": 6,
+    "chart_count": 4,
     "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
     "finding_count": 0,
     "findings": [],
-    "notes_parts_skipped": 30,
-    "relationship_part_count": 65,
-    "slide_count": 30,
+    "notes_parts_skipped": 44,
+    "relationship_part_count": 93,
+    "slide_count": 44,
     "status": "pass",
     "exitCode": 0,
     "findingCount": 0,
@@ -19,133 +19,105 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 808,
+      "checked_text_script_count": 672,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Calibri"
       ],
       "observed_font_use_counts": {
-        "Calibri": 808
+        "Calibri": 672
       },
       "passed": true,
       "performed": true
     },
-    "slide_count": 30,
+    "slide_count": 44,
     "slide_size_in": [
       13.3333,
       7.5
     ],
-    "warning_count": 7,
+    "warning_count": 5,
     "warnings": [
       {
-        "available_bottom_in": 7.125,
-        "columns": 4,
-        "declared_bottom_in": 6.9583,
-        "estimated_native_bottom_in": 7.4062,
-        "footer_object_ids": [
-          "7"
-        ],
-        "kind": "native_table_overflow",
-        "overflow_in": 0.2812,
-        "rows": 5,
-        "slide": 6,
-        "table_id": "12"
-      },
-      {
-        "available_bottom_in": 7.125,
-        "columns": 4,
-        "declared_bottom_in": 6.1042,
-        "estimated_native_bottom_in": 7.1338,
-        "footer_object_ids": [
-          "10"
-        ],
-        "kind": "native_table_overflow",
-        "overflow_in": 0.0088,
-        "rows": 8,
-        "slide": 8,
-        "table_id": "18"
-      },
-      {
-        "available_bottom_in": 7.125,
-        "columns": 7,
-        "declared_bottom_in": 6.9583,
-        "estimated_native_bottom_in": 7.5292,
-        "footer_object_ids": [
-          "44"
-        ],
-        "kind": "native_table_overflow",
-        "overflow_in": 0.4042,
-        "rows": 6,
-        "slide": 16,
-        "table_id": "86"
-      },
-      {
-        "available_bottom_in": 7.125,
-        "columns": 7,
-        "declared_bottom_in": 6.7188,
-        "estimated_native_bottom_in": 7.9245,
-        "footer_object_ids": [
-          "5"
-        ],
-        "kind": "native_table_overflow",
-        "overflow_in": 0.7995,
-        "rows": 6,
-        "slide": 18,
-        "table_id": "8"
-      },
-      {
-        "available_bottom_in": 7.125,
-        "columns": 7,
-        "declared_bottom_in": 6.0625,
-        "estimated_native_bottom_in": 7.304,
+        "available_bottom_in": 7.0417,
+        "columns": 3,
+        "declared_bottom_in": 5.8646,
+        "estimated_native_bottom_in": 7.1673,
         "footer_object_ids": [
           "4"
         ],
         "kind": "native_table_overflow",
-        "overflow_in": 0.179,
-        "rows": 7,
-        "slide": 19,
-        "table_id": "6"
+        "overflow_in": 0.1257,
+        "rows": 5,
+        "slide": 3,
+        "table_id": "7"
       },
       {
-        "available_bottom_in": 6.3125,
+        "available_bottom_in": 7.0417,
         "columns": 4,
-        "declared_bottom_in": 5.6979,
-        "estimated_native_bottom_in": 6.75,
+        "declared_bottom_in": 6.7708,
+        "estimated_native_bottom_in": 7.5996,
         "footer_object_ids": [
-          "6"
+          "5"
         ],
         "kind": "native_table_overflow",
-        "overflow_in": 0.4375,
-        "rows": 16,
-        "slide": 28,
+        "overflow_in": 0.5579,
+        "rows": 6,
+        "slide": 6,
         "table_id": "9"
       },
       {
-        "available_bottom_in": 6.3125,
+        "available_bottom_in": 7.0417,
         "columns": 4,
-        "declared_bottom_in": 6.8958,
-        "estimated_native_bottom_in": 6.9429,
+        "declared_bottom_in": 6.7188,
+        "estimated_native_bottom_in": 7.6248,
         "footer_object_ids": [
-          "6"
+          "8"
         ],
         "kind": "native_table_overflow",
-        "overflow_in": 0.6304,
-        "rows": 2,
-        "slide": 28,
-        "table_id": "12"
+        "overflow_in": 0.5832,
+        "rows": 5,
+        "slide": 16,
+        "table_id": "15"
+      },
+      {
+        "available_bottom_in": 7.0417,
+        "columns": 7,
+        "declared_bottom_in": 6.6562,
+        "estimated_native_bottom_in": 7.8083,
+        "footer_object_ids": [
+          "4"
+        ],
+        "kind": "native_table_overflow",
+        "overflow_in": 0.7667,
+        "rows": 5,
+        "slide": 32,
+        "table_id": "7"
+      },
+      {
+        "available_bottom_in": 7.0417,
+        "columns": 7,
+        "declared_bottom_in": 6.6562,
+        "estimated_native_bottom_in": 8.0221,
+        "footer_object_ids": [
+          "4"
+        ],
+        "kind": "native_table_overflow",
+        "overflow_in": 0.9804,
+        "rows": 5,
+        "slide": 34,
+        "table_id": "7"
       }
     ],
     "exitCode": 0,
     "findingCount": 0,
     "fontPolicy": {
-      "checked_text_script_count": 808,
+      "checked_text_script_count": 672,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Calibri"
       ],
       "observed_font_use_counts": {
-        "Calibri": 808
+        "Calibri": 672
       },
       "passed": true,
       "performed": true
@@ -159,13 +131,13 @@
     "scriptFonts": {},
     "referenceSha256": null,
     "referenceFontsVerifiedInEncodedText": false,
-    "checked_text_script_count": 808,
+    "checked_text_script_count": 672,
     "native_font_rendering_verified": false,
     "observed_font_families": [
       "Calibri"
     ],
     "observed_font_use_counts": {
-      "Calibri": 808
+      "Calibri": 672
     },
     "passed": true,
     "performed": true
@@ -173,8 +145,8 @@
   "firstPartyImport": {
     "performed": true,
     "passed": true,
-    "slideCount": 30,
-    "sha256": "299a3100390be836160fa859c558d8056555a8604be14e547770cb67d1976d28",
+    "slideCount": 44,
+    "sha256": "3712f333d8f8a727489a7f6f4bc09cbaca77ebf375c927ee81accda7159d33f3",
     "runtimeNodeModules": "/home/skr/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
     "nodeExecutable": "/home/skr/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
   },
@@ -186,27 +158,17 @@
     "eligible_table_count": 0,
     "finding_count": 0,
     "findings": [],
-    "native_table_count": 16,
+    "native_table_count": 22,
     "passed": true,
     "schema_version": "presentation-native-table-arithmetic.v1",
     "skipped_tables": [
       {
         "reason": "no_numeric_amounts",
-        "slide": 2,
-        "table": 1
-      },
-      {
-        "reason": "insufficient_rows",
         "slide": 3,
         "table": 1
       },
       {
-        "reason": "no_numeric_amounts",
-        "slide": 4,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
+        "reason": "insufficient_rows",
         "slide": 5,
         "table": 1
       },
@@ -217,7 +179,7 @@
       },
       {
         "reason": "no_numeric_amounts",
-        "slide": 8,
+        "slide": 7,
         "table": 1
       },
       {
@@ -226,17 +188,22 @@
         "table": 1
       },
       {
-        "reason": "no_unambiguous_bottom_total",
-        "slide": 13,
+        "reason": "no_numeric_amounts",
+        "slide": 11,
         "table": 1
       },
       {
-        "reason": "insufficient_rows",
+        "reason": "no_numeric_amounts",
+        "slide": 14,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
         "slide": 15,
         "table": 1
       },
       {
-        "reason": "no_unambiguous_bottom_total",
+        "reason": "no_numeric_amounts",
         "slide": 16,
         "table": 1
       },
@@ -246,32 +213,67 @@
         "table": 1
       },
       {
-        "reason": "no_numeric_amounts",
-        "slide": 18,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 19,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 21,
-        "table": 1
-      },
-      {
-        "reason": "no_numeric_amounts",
-        "slide": 28,
+        "reason": "no_unambiguous_bottom_total",
+        "slide": 22,
         "table": 1
       },
       {
         "reason": "insufficient_rows",
+        "slide": 23,
+        "table": 1
+      },
+      {
+        "reason": "no_unambiguous_bottom_total",
         "slide": 28,
-        "table": 2
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 29,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 30,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 32,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 33,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 34,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 37,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 42,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 43,
+        "table": 1
+      },
+      {
+        "reason": "insufficient_rows",
+        "slide": 44,
+        "table": 1
       }
     ],
-    "slide_count": 30,
+    "slide_count": 44,
     "warning_count": 0,
     "warnings": []
   },
@@ -280,43 +282,33 @@
     "checks": [
       {
         "chart": 1,
-        "slide": 6,
-        "status": "absent"
-      },
-      {
-        "chart": 1,
         "slide": 10,
         "status": "absent"
       },
       {
         "chart": 1,
-        "slide": 14,
-        "status": "absent"
-      },
-      {
-        "chart": 2,
-        "slide": 14,
+        "slide": 18,
         "status": "absent"
       },
       {
         "chart": 1,
-        "slide": 15,
+        "slide": 25,
         "status": "absent"
       },
       {
         "chart": 1,
-        "slide": 16,
+        "slide": 27,
         "status": "absent"
       }
     ],
     "finding_count": 0,
     "findings": [],
-    "native_chart_count": 6,
+    "native_chart_count": 4,
     "native_powerpoint_verified": false,
     "passed": true,
-    "presentation_sha256": "299a3100390be836160fa859c558d8056555a8604be14e547770cb67d1976d28",
+    "presentation_sha256": "3712f333d8f8a727489a7f6f4bc09cbaca77ebf375c927ee81accda7159d33f3",
     "schema_version": "presentation-native-chart-titles.v1",
-    "slide_count": 30,
+    "slide_count": 44,
     "source_text_emitted": false,
     "unresolved_linked_title_count": 0
   },
@@ -325,21 +317,19 @@
     "12192000,6858000",
     "--validate-heading-fit",
     "--require-native-table-slide",
-    "2",
-    "--require-native-table-slide",
     "3",
-    "--require-native-table-slide",
-    "4",
     "--require-native-table-slide",
     "5",
     "--require-native-table-slide",
     "6",
     "--require-native-table-slide",
-    "8",
+    "7",
     "--require-native-table-slide",
     "9",
     "--require-native-table-slide",
-    "13",
+    "11",
+    "--require-native-table-slide",
+    "14",
     "--require-native-table-slide",
     "15",
     "--require-native-table-slide",
@@ -347,29 +337,44 @@
     "--require-native-table-slide",
     "17",
     "--require-native-table-slide",
-    "18",
+    "22",
     "--require-native-table-slide",
-    "19",
-    "--require-native-table-slide",
-    "21",
+    "23",
     "--require-native-table-slide",
     "28",
+    "--require-native-table-slide",
+    "29",
+    "--require-native-table-slide",
+    "30",
+    "--require-native-table-slide",
+    "32",
+    "--require-native-table-slide",
+    "33",
+    "--require-native-table-slide",
+    "34",
+    "--require-native-table-slide",
+    "37",
+    "--require-native-table-slide",
+    "42",
+    "--require-native-table-slide",
+    "43",
+    "--require-native-table-slide",
+    "44",
     "--cover-role",
     "none",
     "--expected-slide-count",
-    "30",
+    "44",
     "--approved-font-family",
     "Calibri"
   ],
   "nativeChartValidation": {
     "detectedOwnerSlides": [
-      6,
       10,
-      14,
-      15,
-      16
+      18,
+      25,
+      27
     ],
-    "detectedChartCount": 6,
+    "detectedChartCount": 4,
     "targetApplication": "powerpoint",
     "sourceChartOwnersExplicitlyDeclared": true,
     "validatorRan": true,
@@ -379,17 +384,16 @@
     "report": {
       "claim_boundary": "OOXML/workbook structural validation only; source provenance and native PowerPoint opening remain separate checks.",
       "expected_quantitative_chart_slides": [
-        6,
         10,
-        14,
-        15,
-        16
+        18,
+        25,
+        27
       ],
       "failed_slide_count": 0,
       "failed_slides": [],
       "formal_human_reviewed": false,
       "native_application_open_verified": false,
-      "package_sha256": "299a3100390be836160fa859c558d8056555a8604be14e547770cb67d1976d28",
+      "package_sha256": "3712f333d8f8a727489a7f6f4bc09cbaca77ebf375c927ee81accda7159d33f3",
       "passed": true,
       "required_embedded_workbook_slides": [],
       "results": [
@@ -413,7 +417,7 @@
           "native_chart_count": 1,
           "raster_picture_count": 0,
           "required_native_chart_count": 1,
-          "slide_number": 6,
+          "slide_number": 10,
           "status": "passed"
         },
         {
@@ -436,42 +440,7 @@
           "native_chart_count": 1,
           "raster_picture_count": 0,
           "required_native_chart_count": 1,
-          "slide_number": 10,
-          "status": "passed"
-        },
-        {
-          "approved_source_figure_exception": false,
-          "charts": [
-            {
-              "editability_evidence": "powerpoint_native_literal",
-              "embedded_workbook_count": 0,
-              "embedded_workbook_sheet_count": 0,
-              "literal_numeric_point_count": 3,
-              "native_chart_types": [
-                "pieChart"
-              ],
-              "numeric_cache_point_count": 0,
-              "series_formula_count": 0,
-              "workbook_numeric_cell_count": 0
-            },
-            {
-              "editability_evidence": "powerpoint_native_literal",
-              "embedded_workbook_count": 0,
-              "embedded_workbook_sheet_count": 0,
-              "literal_numeric_point_count": 4,
-              "native_chart_types": [
-                "pieChart"
-              ],
-              "numeric_cache_point_count": 0,
-              "series_formula_count": 0,
-              "workbook_numeric_cell_count": 0
-            }
-          ],
-          "failure_codes": [],
-          "native_chart_count": 2,
-          "raster_picture_count": 0,
-          "required_native_chart_count": 1,
-          "slide_number": 14,
+          "slide_number": 18,
           "status": "passed"
         },
         {
@@ -494,7 +463,7 @@
           "native_chart_count": 1,
           "raster_picture_count": 0,
           "required_native_chart_count": 1,
-          "slide_number": 15,
+          "slide_number": 25,
           "status": "passed"
         },
         {
@@ -517,24 +486,23 @@
           "native_chart_count": 1,
           "raster_picture_count": 0,
           "required_native_chart_count": 1,
-          "slide_number": 16,
+          "slide_number": 27,
           "status": "passed"
         }
       ],
       "schema_version": "owner-private.quantitative-chart-native-gate.v1",
-      "slide_count": 30,
+      "slide_count": 44,
       "source_attachments_accessed": false,
       "target_application": "powerpoint",
-      "validated_slide_count": 5
+      "validated_slide_count": 4
     },
     "exitCode": 0,
-    "validatedSlideCount": 5,
+    "validatedSlideCount": 4,
     "requiredOwnerSlides": [
-      6,
       10,
-      14,
-      15,
-      16
+      18,
+      25,
+      27
     ],
     "approvedSourceFigureExceptionSlides": [],
     "targetApplication": "powerpoint"
